@@ -30,6 +30,11 @@ function registerPatient($username,$pass,$email,$fname,$icp){
   mysqli_query($database, $sql);
 }
 
+function findUser(){
+  global $database;
+  $sql = "select * from user";
+  return mysqli_query($database, $sql);
+}
 
 
 ?>

@@ -1,3 +1,6 @@
+<?php
+include('database.php');
+ ?>
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -50,8 +53,23 @@
     <button type="submit" class="submitBtn">Cancel</button>
   </div>
 
+<table>
+<?php
+  $findUser = findUser();
+  if(mysqli_num_rows($findUser)>0){
+  while($record = mysqli_fetch_assoc($findUser)) {
+  ?>
+    <tr>
+      <td><?php echo $record['fullName'];?></td>
+      <td><?php echo $record['email'];?></td>
+      <td><?php echo $record['username'];?></td>
+    </tr>
+<?php
+  }
+}else {echo "No Data";}
+ ?>
+  </table>
+
 </form>
 </body>
 </html>
-<?php
-?>
