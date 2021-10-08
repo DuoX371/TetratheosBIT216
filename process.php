@@ -53,11 +53,8 @@ if(isset($_POST["login"])){
 	      elseif($userDetails["userType"] == "p"){
 			  echo "p";
 	      }
-
 	    } else {
 			echo "c";
-	      //jsalert("Please enter a valide Username or password");
-	      //gopage("index.php");
 	    }
 	  }
 
