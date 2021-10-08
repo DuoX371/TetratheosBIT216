@@ -3,9 +3,57 @@ include('database.php');
  ?>
 <!DOCTYPE HTML>
 <html>
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
+document.getElementById("login").addEventListener("click","loginBtn");
+var frm = $('#loginForm');
+function loginBtn(){
+	$.ajax({
+		url: 'process.php',
+		type: 'POST',
+		data: frm.serialize(),
+		success:function(response){
+			console.log(response);
+			console.log("success");
+			// Whatever you want to do after the form is successfully submitted
+		}
+		error: function(data) {
+			console.log("fail");
+		}
+	});
+}
+
+function test(){
+	console.log("a");
+}
+
+function test1(){
+	console.log("a");
+}
+
+// frm.submit(function(e){
+// 	e.preventDefault();
+// 	$.ajax({
+// 		url: 'process.php',
+// 		type: 'POST',
+// 		data: frm.serialize(),
+// 		success:function(response){
+// 			console.log(response);
+// 			console.log("success");
+// 			// Whatever you want to do after the form is successfully submitted
+// 		}
+// 		error: function(data) {
+// 			console.log("fail");
+// 		}
+// 	});
+// 	return false;
+// });
+
+
+</script>
+</head>
 <body>
 <form action="process.php" method="post">
-
   <div class="container">
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
@@ -71,5 +119,19 @@ include('database.php');
   </table>
 
 </form>
+
+<div>
+	<form action="process.php" method="post" name="loginForm" id="loginForm">
+	    <label for="uname"><b>Username</b></label>
+	    <input type="text" placeholder="Enter Username" name="username" required>
+		<br>
+	    <label for="psw"><b>Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="password" required>
+
+	    <button type="button" name="login" id="login">Login</button>
+	</form>
+	<button type="button" name="lodsadasgin" onclick="test1()">Login</button>
+</div>
+
 </body>
 </html>

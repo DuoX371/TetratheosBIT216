@@ -3,7 +3,7 @@ $database = mysqli_connect("localhost","root","","tetratheos");
 
 function validateUser($username, $password){
   global $database;
-  $sql = "select * from user where userID = '$username' and password = '$password'";
+  $sql = "select * from user where username = '$username' and password = '$password'";
   return mysqli_query($database, $sql);
 }
 

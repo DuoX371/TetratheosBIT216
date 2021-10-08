@@ -37,4 +37,28 @@ if(isset($_POST["registerPatient"])){
   jsalert("Username already exist");
   gopage("index.php");
 }
+
+//login
+if(isset($_POST["login"])){
+	$username = $_POST["username"];
+    $password = $_POST["password"];
+
+	$validateUser = validateUser($username, $password);
+	if(mysqli_num_rows($validateUser) > 0){
+	      $userDetails = mysqli_fetch_assoc($validateUser);
+	      $_SESSION["currentUser"] = $userDetails;
+	      if($userDetails["userType"] == "a"){
+			  echo "a";
+	      }
+	      elseif($userDetails["userType"] == "p"){
+			  echo "p";
+	      }
+
+	    } else {
+			echo "c";
+	      //jsalert("Please enter a valide Username or password");
+	      //gopage("index.php");
+	    }
+	  }
+
 ?>
