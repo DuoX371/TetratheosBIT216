@@ -8,7 +8,7 @@
 
 <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
 
-<form id="loginForm">
+<div id="loginForm">
 	<label for="uname"><b>Username</b></label>
 	<input type="text" placeholder="Enter Username" name="username" id="username" required>
 	<br>
@@ -17,16 +17,10 @@
 
 	<button type="button" name="login" id="login" onclick="loginBtn()">Login</button>
 <button onclick="myFunction()">Click me</button>
-</form>
-<p id="demo"></p>
-
+</div>
 
 <script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello World";
-}
 function loginBtn(){
-	//var frm = document.getElementById("loginForm");
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	$.ajax({
@@ -39,16 +33,16 @@ function loginBtn(){
 		},
 		success:function(response){
 			console.log(response);
-			// Whatever you want to do after the form is successfully submitted
+			if(response == 'a'){
+				window.location.href='index.php';
+			}else if(response == 'p'){
+				window.location.href='index.php';
+			}else alert("Incorrect login details");
 		},
 		error: function(data) {
 			console.log("fail");
 		}
 	});
-	// frm.submit(function(e){
-	// 	e.preventDefault();
-
-	//});
 }
 
 
