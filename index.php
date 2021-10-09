@@ -1,56 +1,9 @@
 <?php
-include('database.php');
+include('functions/database.php');
  ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
-document.getElementById("login").addEventListener("click","loginBtn");
-var frm = $('#loginForm');
-function loginBtn(){
-	$.ajax({
-		url: 'process.php',
-		type: 'POST',
-		data: frm.serialize(),
-		success:function(response){
-			console.log(response);
-			console.log("success");
-			// Whatever you want to do after the form is successfully submitted
-		}
-		error: function(data) {
-			console.log("fail");
-		}
-	});
-}
-
-function test(){
-	console.log("a");
-}
-
-function test1(){
-	console.log("a");
-}
-
-// frm.submit(function(e){
-// 	e.preventDefault();
-// 	$.ajax({
-// 		url: 'process.php',
-// 		type: 'POST',
-// 		data: frm.serialize(),
-// 		success:function(response){
-// 			console.log(response);
-// 			console.log("success");
-// 			// Whatever you want to do after the form is successfully submitted
-// 		}
-// 		error: function(data) {
-// 			console.log("fail");
-// 		}
-// 	});
-// 	return false;
-// });
-
-
-</script>
 </head>
 <body>
 <form action="process.php" method="post">

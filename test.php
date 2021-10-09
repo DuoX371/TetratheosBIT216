@@ -1,5 +1,12 @@
+<?php
+include('functions/database.php');
+ ?>
 <!DOCTYPE html>
 <html>
+<head>
+	  <script src="scripts/jquery.js"></script>
+	  <script src="scripts/ajax.js"></script>
+</head>
 <body>
 
 <h1>The onclick Event</h1>
@@ -19,35 +26,32 @@
 <button onclick="myFunction()">Click me</button>
 </div>
 
+<label for="vaccine">Select Vaccine:</lebel>
+	<select name="vaccine" id="vaccine">
+		<option value="test">Test</option>
+		<?php
+		//while ($record = )
+		?>
+		<option value="test1">test1</option>
+		<option value="test2">Test2</option>
+		<option value="test3">Test3</option>
+	</select>
+
 <script>
-function loginBtn(){
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
+function selectVaccine(){
 	$.ajax({
-		url: 'process.php',
+		url: 'functions/process.php',
 		type: 'POST',
 		data:{
-			username: username,
-			password: password,
-			login:'',
+			data: "data",
 		},
 		success:function(response){
-			console.log(response);
-			if(response == 'a'){
-				window.location.href='index.php';
-			}else if(response == 'p'){
-				window.location.href='index.php';
-			}else alert("Incorrect login details");
-		},
-		error: function(data) {
-			console.log("fail");
+
 		}
 	});
 }
-
-
 </script>
-  <script src="jquery.js"></script>
+
 </body>
 </html>
 <?php  ?>
