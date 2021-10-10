@@ -3,7 +3,7 @@ $database = mysqli_connect("localhost","root","","tetratheos");
 
 function validateUser($username, $password){
   global $database;
-  $sql = "select * from user where username = '$username' and password = '$password'";
+  $sql = "select * from user where userID = '$username' and password = '$password'";
   return mysqli_query($database, $sql);
 }
 
@@ -30,11 +30,46 @@ function registerPatient($username,$pass,$email,$fname,$icp){
   mysqli_query($database, $sql);
 }
 
-function findUser(){
+//check if batch already exist and retrieve batch data
+function checkBatch($batchNo){
   global $database;
-  $sql = "select * from user";
+  $sql = "select * from batch where batchNo = '$batchNo'";
   return mysqli_query($database, $sql);
 }
 
+//Retrieve batches from a centre
+function getBatch($centreName){
+    global $database;
+    $sql = "select b.batchNo, expiryDate, quantityAvailable, quantityAdministered, b.vaccineID, vaccinationID, centreName, v.vaccineName from batch as b inner join vaccine as v on v.vaccineID = b.vaccineID where centreName = '$centreName' group by b.batchNo";
+    return mysqli_query($database, $sql);
+}
 
+//Add new batch
+function recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreName){
+  global $database;
+  $sql = "insert into batch(batchNo, expiryDate, quantityAvailable, quantityAdministered, vaccineID, vaccinationID, centreName)
+  Values('$batchNo','$expiryDate','$quantityAvailable',0,'$vaccineID',0,'$centreName')";
+  mysqli_query($database, $sql);
+}
+
+//check if batch already exist and retrieve batch data
+function checkVaccination($batchNo){
+  global $database;
+  $sql = "select * from vaccination where batchNo = '$batchNo'";
+  return mysqli_query($database, $sql);
+}
+
+//Retrieve vaccination from batch
+function getVaccination($batchNo){
+    global $database;
+    $sql = "select b.batchNo, expiryDate, quantityAvailable, quantityAdministered, b.vaccineID, vaccinationID, centreName, v.vaccineName from vaccination as v inner join batch as b on b.batchNo = v.batchNo where vaccinationID = '$vaccinationID'";
+    return mysqli_query($database, $sql);
+}
+
+//Retrieve user,batch and vaccine from vaccination
+function getVaccinationDetails($vaccinationID){
+    global $database;
+    $sql = "select vion.vaccinationID, vion.batchNo, b.expiryDate, u.fullName, v.vaccineName, v.manufacturer, v.vaccineID from vaccination as vion inner join batch as b on vion.batchNo = b.batchNo inner join user as u on vion.vaccinationID = u.vaccinationID inner join vaccine as v on vion.batchNo = v.batchNo where vion.vaccinationID= '$vaccinationID'";
+    return mysqli_query($database, $sql);
+}
 ?>

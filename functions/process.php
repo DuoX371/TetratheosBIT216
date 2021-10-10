@@ -38,24 +38,21 @@ if(isset($_POST["registerPatient"])){
   gopage("index.php");
 }
 
-//login
-if(isset($_POST["login"])){
-	$username = $_POST["username"];
-    $password = $_POST["password"];
+//Add new batch
+if(isset($_POST["recordBatch"])){
+  $batchNo = $_POST["batchNo"];
+  $expiryDate = $_POST["expiryDate"];
+  $quantityAvailable = $_POST["quantityAvailable"];
+  $vaccineID = $_POST["vaccineID"];
+  $centreName = $_POST["centreName"];
 
-	$validateUser = validateUser($username, $password);
-	if(mysqli_num_rows($validateUser) > 0){
-	      $userDetails = mysqli_fetch_assoc($validateUser);
-	      $_SESSION["currentUser"] = $userDetails;
-	      if($userDetails["userType"] == "a"){
-			  echo "a";
-	      }
-	      elseif($userDetails["userType"] == "p"){
-			  echo "p";
-	      }
-	    } else {
-			echo "c";
-	    }
-	  }
-
+  if(!mysqli_num_rows(checkBatch($batchNo)) > 0){
+    recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreName);
+    jsalert("Success");
+    gopage("recordBatch.php");
+    return;
+  }
+  jsalert("Batch No. already exist");
+  gopage("recordBatch.php");
+}
 ?>
