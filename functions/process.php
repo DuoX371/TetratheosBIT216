@@ -13,11 +13,11 @@ if(isset($_POST["registerAdmin"])){
   if(!mysqli_num_rows(checkUser($username)) > 0){
     registerAdmin($username,$pass,$email,$fname,$staffID);
     jsalert("Success");
-    gopage("index.php");
+    gopage("/tetratheos/index.php");
     return;
   }
   jsalert("Username already exist");
-  gopage("index.php");
+  gopage("/tetratheos/register.php");
 }
 
 //register patient
@@ -31,11 +31,11 @@ if(isset($_POST["registerPatient"])){
   if(!mysqli_num_rows(checkUser($username)) > 0){
     registerPatient($username,$pass,$email,$fname,$icp);
     jsalert("Success");
-    gopage("index.php");
+    gopage("/tethratheos/index.php");
     return;
   }
   jsalert("Username already exist");
-  gopage("index.php");
+  gopage("/tethratheos/index.php");
 }
 
 //login

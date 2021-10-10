@@ -1,25 +1,26 @@
-//login
-function loginBtn(){
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
+//loginBtn
+var frm = $('#loginForm');
+frm.submit(function(e) {
+	var user = document.getElementById('username').value;
+	var pass = document.getElementById('password').value;
+	e.preventDefault();
+	if(user === "" || pass === "") {document.getElementById("modalContent").innerHTML = "Please fill in username/password"; return;}
 	$.ajax({
-		url: 'functions/process.php',
-		type: 'POST',
-		data:{
-			username: username,
-			password: password,
-			login:'',
-		},
-		success:function(response){
-			console.log(response);
+		type: "POST",
+		url: "functions/process.php",
+		data: frm.serialize()+"&login=",
+		success: function(response){
+			console.log("success");
 			if(response == 'a'){
-				window.location.href='index.php';
+				document.getElementById("modalContent").innerHTML = "Login Successful... Redirecting.."
+				setTimeout(function(){window.location.href='index.php';},3000);
 			}else if(response == 'p'){
-				window.location.href='index.php';
-			}else alert("Incorrect login details");
+				document.getElementById("modalContent").innerHTML = "Login Successful... Redirecting.."
+				setTimeout(function(){window.location.href='index.php';},3000);
+			}else document.getElementById("modalContent").innerHTML = "Login Failed..."
 		},
 		error: function(data) {
 			console.log("fail");
 		}
 	});
-}
+});

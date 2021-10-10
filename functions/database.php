@@ -14,6 +14,12 @@ function checkUser($username){//check if username exist
   return mysqli_query($database, $sql);
 }
 
+//find all healthcare centre name
+function allHealthcareCentre(){
+	global $database;
+	$sql = "select * from healthcarecentre";
+	return mysqli_query($database, $sql);
+}
 //register admin
 function registerAdmin($username,$pass,$email,$fname,$staffID){
   global $database;
