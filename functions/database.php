@@ -3,7 +3,7 @@ $database = mysqli_connect("localhost","root","","tetratheos");
 
 function validateUser($username, $password){
   global $database;
-  $sql = "select * from user where userID = '$username' and password = '$password'";
+  $sql = "select * from user where username = '$username' and password = '$password'";
   return mysqli_query($database, $sql);
 }
 
@@ -28,6 +28,13 @@ function registerPatient($username,$pass,$email,$fname,$icp){
   $sql = "insert into user(username, password, email, fullName, userType, ICPassport)
   Values('$username', '$pass','$email', '$fname','p', '$icp')";
   mysqli_query($database, $sql);
+}
+
+//find the current user
+function findUser(){
+  global $database;
+  $sql = "select * from user";
+  return mysqli_query($database, $sql);
 }
 
 //check if batch already exist and retrieve batch data
@@ -72,4 +79,5 @@ function getVaccinationDetails($vaccinationID){
     $sql = "select vion.vaccinationID, vion.batchNo, b.expiryDate, u.fullName, v.vaccineName, v.manufacturer, v.vaccineID from vaccination as vion inner join batch as b on vion.batchNo = b.batchNo inner join user as u on vion.vaccinationID = u.vaccinationID inner join vaccine as v on vion.batchNo = v.batchNo where vion.vaccinationID= '$vaccinationID'";
     return mysqli_query($database, $sql);
 }
+
 ?>
