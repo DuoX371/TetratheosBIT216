@@ -89,7 +89,7 @@ function getVaccinationDetails($vaccinationID){
 //Retrieve centreName of administator account
 function findCentreName($userName){
   global $database;
-  $sql = "select * from subject join assignment using (subjectID) where lecturerID = '$lecturerID'";
+  $sql = "select * from user where centreName = '$centreName'";
   $result = mysqli_query($database, $sql);
   return $result;
 }

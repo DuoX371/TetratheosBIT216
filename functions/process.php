@@ -72,4 +72,13 @@ if(isset($_POST["recordBatch"])){
 	jsalert("Batch No. already exist");
 	gopage("/tetratheos/recordBatch.php");
 }
+
+//Login batch
+if(isset($_POST["btnBatch"])){
+	$batchNo = $_POST["btnBatch"];
+  checkBatch($batchNo);
+  echo $batchNo;
+}
+
+
 ?>

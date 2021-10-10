@@ -21,6 +21,8 @@ function getVaccinationDetails(str) {
   xmlhttp.open("GET","getvaccination.php?q="+str,true);
   xmlhttp.send();
 }
+
+
   </script>
 
 
@@ -32,10 +34,16 @@ table, th, td {
 }
 </style>
 <body>
-  <h1>Batch 1</h1>
+
   <?php
-    $batchInfo = checkBatch(1);
+  if(isset($_POST["btnBatch"])){
+  	$batchNo = $_POST["btnBatch"];
+    $batchInfo = checkBatch($batchNo);
+  }
+
+  //$batchInfo = checkBatch(1);
     echo'
+    <h1>Batch ' .$batchNo. '</h1>
     <div class="card-body">
       <div>
       <table>
@@ -62,7 +70,7 @@ table, th, td {
       </div>
     </div>';
 
-    $vaccinationInfo = checkVaccination(1);
+    $vaccinationInfo = checkVaccination($batchNo);
     echo'
     <div class="card-body">
       <div>
@@ -75,14 +83,9 @@ table, th, td {
 
         </tr>';
 
-    /*function getVaccinationIDArray($vaccinationID){
-      $vaccinationIDArray = $record["vaccinationID"];
-      echo 'hi';
-    }*/
+
 
     while($record = mysqli_fetch_assoc($vaccinationInfo)){
-      //$vaccinationIDArray = "";
-      //<td><button onclick="'getVaccinationIDArray($record["vaccinationID"])'"> '. $record["vaccinationID"] .' </button></td>
       echo '
         <tr>
           <td><button onclick="getVaccinationDetails(this.value)" value="'. $record["vaccinationID"] .'"> '. $record["vaccinationID"] .' </button></td>
@@ -101,41 +104,7 @@ table, th, td {
     <div id="txtHint"><b>Vaccination info will be listed here...</b>
     </div>';
 
-    //$vaccinationDetails = getVaccinationDetails($vaccinationIDArray);
 
-    /*echo'
-    <div class="card-body">
-      <div>
-      <table>
-        <tr>
-          <th>Vaccination ID</th>
-          <th>Batch No.</th>
-          <th>Patient Full Name</th>
-          <th>Expiry Date.</th>
-          <th>Vaccine Name</th>
-          <th>Manufacturer</th>
-          <th>Vaccine ID</th>
-
-        </tr>
-
-      <div id="txtHint"><b>Person info will be listed here...</b></div>';
-
-
-    while($record = mysqli_fetch_assoc($vaccinationDetails)){
-      echo '
-        <tr>
-          <td> '. $record["vaccinationID"] .' </td>
-          <td> '. $record["batchNo"] .' </td>
-          <td> '. $record["fullName"] .' </td>
-          <td> '. $record["expiryDate"] .' </td>
-          <td> '. $record["vaccineName"] .' </td>
-          <td> '. $record["manufacturer"] .' </td>
-          <td> '. $record["vaccineID"] .' </td>
-
-        </tr>';
-
-      echo '<div class="mydivider"></div>';
-    }*/
       echo'
       </table>
     </div>';

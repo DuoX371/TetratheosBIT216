@@ -1,22 +1,28 @@
 <?php
 include('functions/database.php');
+include('functions/process.php');
+
 ?>
 <!DOCTYPE HTML>
 <html>
+<head>
+</head>
 <style>
 table, th, td {
   border:1px solid black;
 }
 </style>
 <body>
-  <h1>Liyue Healthcare Centre</h1>
 
   <?php
-        //$subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
-        $centreBatch = getBatch("Liyue Healthcare Centre1");
+        $centreBatch = getBatch($_SESSION["currentUser"]["centreName"]);
+
         echo'
+        <h1> '. $_SESSION["currentUser"]["centreName"] .' </h1>
+
         <div class="card-body">
           <div>
+          <form action="batch.php" method="POST" id="batchForm">
           <table>
             <tr>
               <th>Batch No.</th>
@@ -27,11 +33,12 @@ table, th, td {
               <th>Vaccine Name</th>
             </tr>';
 
+//                <td><a href="batch.php"> '. $record["batchNo"] .' </a></td>
 
           while($record = mysqli_fetch_assoc($centreBatch)){
             echo '
               <tr>
-                <td><a href="batch.php"> '. $record["batchNo"] .' </a></td>
+                <td><a href="batch.php"><button onclick="checkBatch(this.value)" name="btnBatch" value="'. $record["batchNo"] .'"> '. $record["batchNo"] .' </button></a></td>
                 <td> '. $record["expiryDate"] .' </td>
                 <td> '. $record["quantityAvailable"] .' </td>
                 <td> '. $record["quantityAdministered"] .' </td>
@@ -43,6 +50,7 @@ table, th, td {
           }
             echo'
           </table>
+          </form>
           </div>
         </div>';
         ?>
