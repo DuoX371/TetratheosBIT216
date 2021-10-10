@@ -7,7 +7,7 @@ include('functions/database.php');
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 .register{
 	padding: 3%;
@@ -115,7 +115,7 @@ include('functions/database.php');
 					<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
 					<h3>Welcome</h3>
 					<p>Join us now at Tetratheos to get your vaccination done!</p>
-					<a href="test.php"><input type="submit" href="test.php" name="" value="Login"/></a><br/>
+					<a href="login.php"><input type="submit" name="" value="Login"/></a><br/>
 				</div>
 				<div class="col-md-9 register-right">
 					<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -129,11 +129,11 @@ include('functions/database.php');
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<h3 class="register-heading">Register as a Healtcare Administrater</h3>
-							<form action="functions/process.php" method="post">
+							<form action="" method="POST" id="adminRegForm">
 								<div class="row register-form">
 									<div class="col-md-6">
 										<div class="form-group">
-											<select class="form-control" name="centreName" id="centreName" required>
+											<select class="form-control" name="centreName" id="centreName">
 												<option value="validate" disabled selected hidden>Choose a Healthcare Centre</option>
 												<?php
 												$allHealthcareCentre = allHealthcareCentre();
@@ -144,51 +144,50 @@ include('functions/database.php');
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Username *" name="username" required/>
+											<input type="text" class="form-control" placeholder="Username *" name="username" id="usernameA"/>
 										</div>
 										<div class="form-group">
-											<input type="password" class="form-control" placeholder="Password *" name="pass" required/>
+											<input type="password" class="form-control" placeholder="Password *" name="pass" id="passA"/>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="email" class="form-control"  placeholder="Your Email *" name="email" required/>
+											<input type="email" class="form-control"  placeholder="Your Email *" name="email" id="emailA"/>
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" required/>
+											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" id="fnameA"/>
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your Staff Id *" name="staffid" required/>
+											<input type="text" class="form-control" placeholder="Your Staff Id *" name="staffid" id="staffid"/>
 										</div>
-										<input type="submit" class="btnRegister"  name="registerAdmin" value="Register"/>
+										<input class="btnRegister" type="submit" name="registerAdmin" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Register"/>
 									</div>
-
 								</div>
 							</form>
 						</div>
 						<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							<h3  class="register-heading">Register as a Patient</h3>
-							<form action="functions/process.php" method="post">
+							<form action="functions/process.php" method="post" id="registerPatient">
 								<div class="row register-form">
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Username *" name="username" required/>
+											<input type="text" class="form-control" placeholder="Username *" name="username" id="usernameP"/>
 										</div>
 										<div class="form-group">
-											<input type="password" class="form-control" placeholder="Password *" name="pass" required/>
+											<input type="password" class="form-control" placeholder="Password *" name="pass" id="passP"/>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="email" class="form-control"  placeholder="Your Email *" name="email" required/>
+											<input type="email" class="form-control"  placeholder="Your Email *" name="email" id="emailP"/>
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" required/>
+											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" id="fnameP"/>
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Your IC/Passport *" name="staffid" required/>
+											<input type="text" class="form-control" placeholder="Your IC/Passport *" name="icp" id="icp"/>
 										</div>
-										<input type="submit" class="btnRegister" name="registerPatient" value="Register"/>
+										<input class="btnRegister" type="submit" name="registerPatient" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Register"/>
 									</div>
 								</div>
 							</form>
@@ -198,6 +197,19 @@ include('functions/database.php');
 			</div>
 		</div>
 	</div>
-
+	<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Login Status</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body" id="modalContent">
+					</div>
+				</div>
+			</div>
+		</div>
+<script src="scripts/ajax.js"></script>
 </body>
 </html>
