@@ -13,10 +13,11 @@ frm.submit(function(e) {
 			console.log("success");
 			if(response == 'a'){
 				document.getElementById("modalContent").innerHTML = "Login Successful... Redirecting.."
-				setTimeout(function(){window.location.href='index.php';},3000);
+				setTimeout(function(){window.location.href='/tetratheos/recordbatch.php';},1000);
+
 			}else if(response == 'p'){
 				document.getElementById("modalContent").innerHTML = "Login Successful... Redirecting.."
-				setTimeout(function(){window.location.href='index.php';},3000);
+				setTimeout(function(){window.location.href='index.php';},1000);
 			}else document.getElementById("modalContent").innerHTML = "Login Failed..."
 		},
 		error: function(data) {

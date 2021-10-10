@@ -9,9 +9,11 @@ if(isset($_POST["registerAdmin"])){
   $email = $_POST["email"];
   $fname = $_POST["fname"];
   $staffID = $_POST["staffid"];
+  $centreName = $_POST["centreName"];
 
+echo $centreName;
   if(!mysqli_num_rows(checkUser($username)) > 0){
-    registerAdmin($username,$pass,$email,$fname,$staffID);
+    registerAdmin($username,$pass,$email,$fname,$staffID,$centreName);
     jsalert("Success");
     gopage("/tetratheos/index.php");
     return;
@@ -48,7 +50,7 @@ if(isset($_POST["login"])){
 	      $userDetails = mysqli_fetch_assoc($validateUser);
 	      $_SESSION["currentUser"] = $userDetails;
 	      if($userDetails["userType"] == "a"){
-			  echo "a";
+        echo "a";
 	      }
 	      elseif($userDetails["userType"] == "p"){
 			  echo "p";
@@ -68,10 +70,10 @@ if(isset($_POST["recordBatch"])){
 	if(!mysqli_num_rows(checkBatch($batchNo)) > 0){
 	  recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreName);
 	  jsalert("Success");
-	  gopage("recordBatch.php");
+	  gopage("/tetratheos/recordBatch.php");
 	  return;
 	}
 	jsalert("Batch No. already exist");
-	gopage("recordBatch.php");
+	gopage("/tetratheos/recordBatch.php");
 }
 ?>

@@ -115,7 +115,7 @@ include('functions/database.php');
 					<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
 					<h3>Welcome</h3>
 					<p>Join us now at Tetratheos to get your vaccination done!</p>
-					<input type="submit" name="" value="Login"/><br/>
+					<a href="test.php"><input type="submit" href="test.php" name="" value="Login"/></a><br/>
 				</div>
 				<div class="col-md-9 register-right">
 					<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -133,7 +133,7 @@ include('functions/database.php');
 								<div class="row register-form">
 									<div class="col-md-6">
 										<div class="form-group">
-											<select class="form-control" name="vaccineCenter" id="vaccineCenter" required>
+											<select class="form-control" name="centreName" id="centreName" required>
 												<option value="validate" disabled selected hidden>Choose a Healthcare Centre</option>
 												<?php
 												$allHealthcareCentre = allHealthcareCentre();

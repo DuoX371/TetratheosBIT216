@@ -12,6 +12,7 @@ table, th, td {
   <h1>Liyue Healthcare Centre</h1>
 
   <?php
+        //$subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
         $centreBatch = getBatch("Liyue Healthcare Centre1");
         echo'
         <div class="card-body">

@@ -21,10 +21,10 @@ function allHealthcareCentre(){
 	return mysqli_query($database, $sql);
 }
 //register admin
-function registerAdmin($username,$pass,$email,$fname,$staffID){
+function registerAdmin($username,$pass,$email,$fname,$staffID,$centreName){
   global $database;
-  $sql = "insert into user(username, password, email, fullName, userType, staffID)
-  Values('$username', '$pass','$email', '$fname','a', '$staffID')";
+  $sql = "insert into user(username, password, email, fullName, userType, staffID, centreName)
+  Values('$username', '$pass','$email', '$fname','a', '$staffID', '$centreName')";
   mysqli_query($database, $sql);
 }
 
@@ -86,4 +86,11 @@ function getVaccinationDetails($vaccinationID){
     return mysqli_query($database, $sql);
 }
 
+//Retrieve centreName of administator account
+function findCentreName($userName){
+  global $database;
+  $sql = "select * from subject join assignment using (subjectID) where lecturerID = '$lecturerID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 ?>
