@@ -55,7 +55,7 @@ table, th, td {
         </div>';
         ?>
 
-        <form action="process.php" method="post">
+        <form action="functions/process.php" method="post">
 
           <div class="container">
             <label for="batchNo"><b>Batch No.</b></label>

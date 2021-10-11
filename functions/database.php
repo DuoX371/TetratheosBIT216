@@ -90,7 +90,13 @@ function getVaccinationDetails($vaccinationID){
 function findCentreName($userName){
   global $database;
   $sql = "select * from user where centreName = '$centreName'";
-  $result = mysqli_query($database, $sql);
-  return $result;
+  return mysqli_query($database, $sql);  return $result;
+}
+
+//Update vaccination status and remarks
+function updateVaccinationStatusRemarks($status, $remark, $vaccinationID){
+  global $database;
+  $sql = "update vaccination set status = '$status', remark = '$remark' where vaccinationID = '$vaccinationID'";
+  return mysqli_query($database, $sql);
 }
 ?>
