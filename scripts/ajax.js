@@ -143,22 +143,33 @@ function availableVaccines(centreName,vaccineID){
 			selectCentre: "",
 		},
 		success: function(response){
-			if(response){
+			//console.log(response.length);
+			if(response.length > 2){
+				if(response){
+					batchInfo[0].removeAttribute("hidden");
+					document.getElementById("batchInfoDetailer").hidden = true;
+					batchInfo[0].getElementsByTagName('tbody')[1].innerHTML = "";
+					data = JSON.parse(response);
+					console.log(data);
+					data.forEach(d => {
+						document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML +=
+						`<tr>
+						<td>${d.batchNo}</td>
+						<td><button onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
+						</tr>`;
+					});
+				}
+				else {
+					console.log("Please Log in to continue");
+				}
+			}else{
 				batchInfo[0].removeAttribute("hidden");
 				document.getElementById("batchInfoDetailer").hidden = true;
-				batchInfo[0].getElementsByTagName('tbody')[1].innerHTML = "";
-				data = JSON.parse(response);
-				console.log(data);
-				data.forEach(d => {
-					document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML +=
-					`<tr>
-					<td>${d.batchNo}</td>
-					<td><button onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
-					</tr>`;
-				});
-			}
-			else {
-				console.log("Please Log in to continue");
+				document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML = `
+				<tr>
+				<td>No available batch for selected options</td>
+				<td></td>
+				</tr>`;
 			}
 		},
 		error: function(data) {
@@ -178,6 +189,7 @@ function batchInfoDetailed(batchNo){
 			batchInfoDetailed: "",
 		},
 		success: function(response){
+			console.log(response);
 			data = JSON.parse(response);
 			console.log(data);
 			batchInfoDetailer[0].removeAttribute("hidden");

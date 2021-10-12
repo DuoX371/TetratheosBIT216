@@ -108,7 +108,9 @@ if(isset($_POST["selectCentre"])){
 		$findBatchInfo = findBatchInfo($centreName,$vaccineID);
 		$batchInfo = array();
 		while($record = mysqli_fetch_assoc($findBatchInfo)){
-			array_push($batchInfo, $record);
+			if($record["expiryDate"] > date("Y-m-d")){
+				array_push($batchInfo, $record);
+			}
 		}
 		echo json_encode($batchInfo);
 		return;
@@ -141,6 +143,7 @@ if(isset($_POST["displayAppointmentDetails"])){
 	echo json_encode($selectedDetails);
 }
 
+//submit appointment
 if(isset($_POST["submitAppointment"])){
 	$batchNo = $_POST["batchNo"];
 	$expiryDate = $_POST["expiryDate"];
