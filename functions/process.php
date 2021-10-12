@@ -80,5 +80,72 @@ if(isset($_POST["btnBatch"])){
   echo $batchNo;
 }
 
+//display vaccine information
+if(isset($_POST["selectVaccine"])){
+	$vaccineID = $_POST["vaccineID"];
+	$allVaccineBatch = findAllVaccineBatch($vaccineID);
+	$vaccineBtchInfo = array();
+	while($record = mysqli_fetch_assoc($allVaccineBatch)){
+		array_push($vaccineBtchInfo, $record);
+	}
+	echo json_encode($vaccineBtchInfo);
+}
 
+
+//display batch information base on centre name
+if(isset($_POST["selectCentre"])){
+	$centreName = $_POST["centreName"];
+	$vaccineID = $_POST["vaccineID"];
+	if(isset($_SESSION["currentUser"])){
+		$findBatchInfo = findBatchInfo($centreName,$vaccineID);
+		$batchInfo = array();
+		while($record = mysqli_fetch_assoc($findBatchInfo)){
+			array_push($batchInfo, $record);
+		}
+		echo json_encode($batchInfo);
+		return;
+	}
+	else{
+		echo false;
+		return;
+	}
+}
+
+//display batchInfo based on selected batch
+if(isset($_POST["batchInfoDetailed"])){
+	$batchNo = $_POST["batchNo"];
+	$findBatchInfoDetailed = findBatchInfoDetailed($batchNo);
+	$batchInfoDetailed = array();
+	while($record = mysqli_fetch_assoc($findBatchInfoDetailed)){
+		array_push($batchInfoDetailed, $record);
+	}
+	echo json_encode($batchInfoDetailed);
+}
+
+//patient request appointment
+if(isset($_POST["displayAppointmentDetails"])){
+	$batchNo = $_POST["batchNo"];
+	$selectedBatchDetails = selectedBatchDetails($batchNo);
+	$selectedDetails = array();
+	while($record = mysqli_fetch_assoc($selectedBatchDetails)){
+		array_push($selectedDetails, $record);
+	}
+	echo json_encode($selectedDetails);
+}
+
+if(isset($_POST["submitAppointment"])){
+	$batchNo = $_POST["batchNo"];
+	$expiryDate = $_POST["expiryDate"];
+	$date = $_POST["date"];
+	$username = $_SESSION["currentUser"]["username"];
+
+	if($date < $expiryDate){
+		insertAppointment($date,$batchNo,$username);
+		echo "a";
+		return;
+	}
+	echo "b";
+	echo "Appointment date cannot be after expiry date";
+	return;
+}
 ?>

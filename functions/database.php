@@ -93,4 +93,50 @@ function findCentreName($userName){
   $result = mysqli_query($database, $sql);
   return $result;
 }
+
+//Retrieve all vaccine information
+function findAllVaccine(){
+  global $database;
+  $sql = "select * from vaccine";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+//Retrieve all vaccine and batches information based on input vaccineID
+function findAllVaccineBatch($vaccineID){
+  global $database;
+  $sql = "select DISTINCT centreName, address, vaccineID from vaccine join batch using (vaccineID) join healthcarecentre using (centreName) where vaccineID ='$vaccineID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+//find all batch based on input centre name
+function findBatchInfo($centreName,$vaccineID){
+  global $database;
+  $sql = "select * from batch join healthcarecentre using (centreName) where centreName ='$centreName' and vaccineID ='$vaccineID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+function findBatchInfoDetailed($batchNo){
+	global $database;
+  $sql = "select * from batch where batchNo ='$batchNo'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+function selectedBatchDetails($batchNo){
+	global $database;
+  $sql = "select * from vaccine join batch using (vaccineID) where batchNo ='$batchNo'";
+	//join vaccination using(batchNo) join user using (username)
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+function insertAppointment($date,$batchNo,$username){
+	global $database;
+	$sql = "insert into vaccination(appointmentDate, status, remark, batchNo, username)
+	values('$date', 'Pending', '', '$batchNo', '$username')";
+	mysqli_query($database, $sql);
+}
 ?>

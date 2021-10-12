@@ -10,7 +10,7 @@ frm.submit(function(e) {
 		url: "functions/process.php",
 		data: frm.serialize()+"&login=",
 		success: function(response){
-			console.log("success");
+			console.log(response);
 			if(response == 'a'){
 				document.getElementById("modalContent").innerHTML = "Login Successful... Redirecting.."
 				setTimeout(function(){window.location.href='/tetratheos/recordbatch.php';},1000);
@@ -95,4 +95,159 @@ patientFrm.submit(function(e) {
 			console.log("fail");
 		}
 	});
+});
+
+//display healthcarecentre and address
+var tableLocation = $('#tableLocation');
+function displayVacccine(vaccineID){
+	$.ajax({
+		type: "POST",
+		url: "functions/process.php",
+		data: {
+			vaccineID: vaccineID,
+			selectVaccine: "",
+		},
+		success: function(response){
+			console.log(response);
+			tableLocation[0].removeAttribute("hidden");
+			document.getElementById("batchInfo").hidden = true;
+			document.getElementById("batchInfoDetailer").hidden = true;
+			tableLocation[0].getElementsByTagName('tbody')[1].innerHTML = "";
+			data = JSON.parse(response);
+			data.forEach(d => {
+				document.getElementById("tableLocation").getElementsByTagName('tbody')[1].innerHTML +=
+				`<tr>
+				<td>${d.centreName}</td>
+		    <td>${d.address}</td>
+				<td><button onclick='availableVaccines(this.value,this.getAttribute("data-value"))' value='${d.centreName}' data-value='${d.vaccineID}'>Select</button></td>
+				</tr>`;
+			});
+
+		},
+		error: function(data) {
+			console.log("fail");
+		}
+	});
+}
+
+//display batch information
+var batchInfo = $('#batchInfo');
+function availableVaccines(centreName,vaccineID){
+	console.log(centreName,vaccineID);
+	$.ajax({
+		type: "POST",
+		url: "functions/process.php",
+		data: {
+			centreName: centreName,
+			vaccineID: vaccineID,
+			selectCentre: "",
+		},
+		success: function(response){
+			if(response){
+				batchInfo[0].removeAttribute("hidden");
+				document.getElementById("batchInfoDetailer").hidden = true;
+				batchInfo[0].getElementsByTagName('tbody')[1].innerHTML = "";
+				data = JSON.parse(response);
+				console.log(data);
+				data.forEach(d => {
+					document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML +=
+					`<tr>
+					<td>${d.batchNo}</td>
+					<td><button onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
+					</tr>`;
+				});
+			}
+			else {
+				console.log("Please Log in to continue");
+			}
+		},
+		error: function(data) {
+			console.log("fail");
+		}
+	});
+}
+
+//display expirydate and quantityAvailable
+var batchInfoDetailer = $('#batchInfoDetailer');
+function batchInfoDetailed(batchNo){
+	$.ajax({
+		type: "POST",
+		url: "functions/process.php",
+		data: {
+			batchNo: batchNo,
+			batchInfoDetailed: "",
+		},
+		success: function(response){
+			data = JSON.parse(response);
+			console.log(data);
+			batchInfoDetailer[0].removeAttribute("hidden");
+			batchInfoDetailer[0].getElementsByTagName('tbody')[1].innerHTML = "";
+			data.forEach(d => {
+				document.getElementById("batchInfoDetailer").getElementsByTagName('tbody')[1].innerHTML +=
+				`<tr>
+				<td>${d.expiryDate}</td>
+				<td>${d.quantityAvailable}</td>
+				<td><button onclick='displayAppointmentDetails(this.value)' data-bs-toggle="modal" data-bs-target="#confirmation" value='${d.batchNo}'>Select</button></td>
+				</tr>`;
+			});
+		},
+		error: function(data) {
+			console.log("fail");
+		}
+	});
+}
+
+//confirmation box appointment
+function displayAppointmentDetails(batchNo){
+	$.ajax({
+		type: "POST",
+		url: "functions/process.php",
+		data: {
+			batchNo: batchNo,
+			displayAppointmentDetails: "",
+		},
+		success: function(response){
+			console.log(response);
+			data = JSON.parse(response);
+			document.getElementById("selectedVaccine").innerHTML =
+			`<input value='${data[0].vaccineName}' readonly><input name='batchNo' value='${batchNo}' hidden>`;
+			document.getElementById("selectedCentre").innerHTML = `<input value='${data[0].centreName}' readonly>`;
+			document.getElementById("selectedExpiryDate").innerHTML = `<input name='expiryDate' value='${data[0].expiryDate}' readonly>`;
+		},
+		error: function(data) {
+			console.log("fail");
+		}
+	});
+}
+
+//submit appointment
+var appFrm = $('#submitAppointment');
+appFrm.submit(function(e){
+	document.getElementById("btnSub").disabled = true;
+	e.preventDefault();
+	$.ajax({
+		type: "POST",
+		url: "functions/process.php",
+		data: appFrm.serialize()+"&submitAppointment=",
+		success: function(response){
+			if(response === "a"){
+				document.getElementById("responseI").innerHTML = `
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Registration Successful!</strong> Thank you for registering your vaccination with Thetratheos.
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>`;
+				setTimeout(function(){window.location.href='findVex.php';},3000);
+			}else{
+				document.getElementById("responseI").innerHTML = `
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>Registration Failed!</strong> Please select a valid date.
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>`;
+				document.getElementById("btnSub").disabled = false;
+			}
+		},
+		error: function(data) {
+			console.log("fail");
+		}
+		})
 });
