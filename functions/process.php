@@ -11,13 +11,15 @@ if(isset($_POST["registerAdmin"])){
   $staffID = $_POST["staffid"];
   $centreName = $_POST["centreName"];
 
+echo $centreName;
   if(!mysqli_num_rows(checkUser($username)) > 0){
     registerAdmin($username,$pass,$email,$fname,$staffID,$centreName);
-		echo true;
+    jsalert("Success");
+    gopage("/tetratheos/index.php");
     return;
   }
-  //jsalert("Username already exist");
-	echo false;
+  jsalert("Username already exist");
+  gopage("/tetratheos/register.php");
 }
 
 //register patient
@@ -30,10 +32,12 @@ if(isset($_POST["registerPatient"])){
 
   if(!mysqli_num_rows(checkUser($username)) > 0){
     registerPatient($username,$pass,$email,$fname,$icp);
-		echo true;
+    jsalert("Success");
+    gopage("/tethratheos/index.php");
     return;
   }
-	echo false;
+  jsalert("Username already exist");
+  gopage("/tethratheos/index.php");
 }
 
 //login
@@ -73,11 +77,15 @@ if(isset($_POST["recordBatch"])){
 	gopage("/tetratheos/recordBatch.php");
 }
 
-//Login batch
-if(isset($_POST["btnBatch"])){
-	$batchNo = $_POST["btnBatch"];
-  checkBatch($batchNo);
-  echo $batchNo;
+//Update vacccination status and remarks
+if(isset($_POST["updateVaccinationStatusRemarks"])){
+  $status = $_POST["status"];
+  $remark = $_POST["remark"];
+  $vaccinationID = $_POST["vaccinationID"];
+
+  updateVaccinationStatusRemarks($status,$remark,$vaccinationID);
+  jsalert("Success");
+    //gopage("/tetratheos/index.php");
 }
 
 //display vaccine information
