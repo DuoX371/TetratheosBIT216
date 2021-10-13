@@ -16,12 +16,13 @@ body {
 
 a {
   color: #47b2e4;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
-  color: #73c5eb;
+  color: #73c5eb !important;
   text-decoration: none;
+	transition: 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
