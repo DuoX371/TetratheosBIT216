@@ -1,7 +1,7 @@
 <?php
 include('functions/database.php');
 include('functions/process.php');
-
+include('include/header.php')
 
 ?>
 <!DOCTYPE HTML>
@@ -19,38 +19,9 @@ include('functions/process.php');
   </head>
 <style>
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 </style>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="margin-left:20%;"><</a>
-      <button class="btn btn-outline-primary" type="submit" style="margin-right:20%;">Logout</button>
-      </div>
-    </div>
-  </nav>
+
   <?php
         $centreBatch = getBatch($_SESSION["currentUser"]["centreName"]);
 

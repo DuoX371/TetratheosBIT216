@@ -18,10 +18,6 @@ echo'
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -38,30 +34,8 @@ if(isset($_SESSION["currentUser"])){
 	echo '
 	      <nav id="navbar" class="navbar">
 	        <ul>
-	          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-	          <li><a class="nav-link scrollto" href="#about">About</a></li>
-	          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-	          <li><a class="nav-link   scrollto" href="#portfolio">Appoint</a></li>
-	          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-	          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-	            <ul>
-	              <li><a href="#">Drop Down 1</a></li>
-	              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-	                <ul>
-	                  <li><a href="#">Deep Drop Down 1</a></li>
-	                  <li><a href="#">Deep Drop Down 2</a></li>
-	                  <li><a href="#">Deep Drop Down 3</a></li>
-	                  <li><a href="#">Deep Drop Down 4</a></li>
-	                  <li><a href="#">Deep Drop Down 5</a></li>
-	                </ul>
-	              </li>
-	              <li><a href="#">Drop Down 2</a></li>
-	              <li><a href="#">Drop Down 3</a></li>
-	              <li><a href="#">Drop Down 4</a></li>
-	            </ul>
-	          </li>
-	          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-	          <li><a class="getstarted scrollto" href="login.php">Login</a></li>
+	          <li><a class="nav-link scrollto active" href="recordBatch.php">Home</a></li>
+	          <li><a class="getstarted scrollto" href="login.php">Logout</a></li>
 	        </ul>
 	        <i class="bi bi-list mobile-nav-toggle"></i>
 	      </nav><!-- .navbar -->

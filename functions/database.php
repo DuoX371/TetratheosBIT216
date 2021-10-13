@@ -66,15 +66,15 @@ function checkBatch($batchNo){
 //Retrieve batches from a centre
 function getBatch($centreName){
     global $database;
-    $sql = "select b.batchNo, expiryDate, quantityAvailable, quantityAdministered, b.vaccineID, vaccinationID, centreName, v.vaccineName from batch as b inner join vaccine as v on v.vaccineID = b.vaccineID where centreName = '$centreName' group by b.batchNo";
+    $sql = "select b.batchNo, expiryDate, quantityAvailable, quantityAdministered, b.vaccineID, centreName, v.vaccineName from batch as b inner join vaccine as v on v.vaccineID = b.vaccineID where centreName = '$centreName' group by b.batchNo";
     return mysqli_query($database, $sql);
 }
 
 //Add new batch
 function recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreName){
   global $database;
-  $sql = "insert into batch(batchNo, expiryDate, quantityAvailable, quantityAdministered, vaccineID, vaccinationID, centreName)
-  Values('$batchNo','$expiryDate','$quantityAvailable',0,'$vaccineID',0,'$centreName')";
+  $sql = "insert into batch(batchNo, expiryDate, quantityAvailable, quantityAdministered, vaccineID, centreName)
+  Values('$batchNo','$expiryDate','$quantityAvailable',0,'$vaccineID','$centreName')";
   mysqli_query($database, $sql);
 }
 
