@@ -4,8 +4,6 @@ include('functions/database.php');
 <!DOCTYPE HTML>
 <html>
 <head>
-
-
 <script>
 function getVaccinationDetails(str) {
   if (str=="") {
