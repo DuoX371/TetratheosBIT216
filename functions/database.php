@@ -152,4 +152,10 @@ function insertAppointment($date,$batchNo,$username){
 	values('$date', 'Pending', '', '$batchNo', '$username')";
 	mysqli_query($database, $sql);
 }
+
+function checkAppointment($batchNo, $username){
+	global $database;
+  $sql = "select * from vaccination where batchNo = '$batchNo' and username = '$username'";
+  return mysqli_query($database, $sql);
+}
 ?>

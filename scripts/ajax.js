@@ -103,6 +103,8 @@ patientFrm.submit(function(e) {
 
 //display healthcarecentre and address
 var tableLocation = $('#tableLocation');
+var toastTrigger ="";
+var toastLiveExample="";
 function displayVacccine(vaccineID){
 	$.ajax({
 		type: "POST",
@@ -122,10 +124,10 @@ function displayVacccine(vaccineID){
 				`<tr>
 				<td>${d.centreName}</td>
 		    <td>${d.address}</td>
-				<td><button type='button' class='btn btn-primary'  onclick='availableVaccines(this.value,this.getAttribute("data-value"))' value='${d.centreName}' data-value='${d.vaccineID}'>Select</button></td>
+				<td><button type='button' class='btn btn-primary'
+				onclick='availableVaccines(this.value,this.getAttribute("data-value"))' value='${d.centreName}' data-value='${d.vaccineID}'>Select</button></td>
 				</tr>`;
 			});
-
 		},
 		error: function(data) {
 			console.log("fail");
@@ -146,7 +148,7 @@ function availableVaccines(centreName,vaccineID){
 			selectCentre: "",
 		},
 		success: function(response){
-			//console.log(response.length);
+			console.log(response.length);
 			if(response.length > 2){
 				if(response){
 					batchInfo[0].removeAttribute("hidden");
@@ -158,13 +160,15 @@ function availableVaccines(centreName,vaccineID){
 						document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML +=
 						`<tr>
 						<td>${d.batchNo}</td>
-						<td><button type='button' class='btn btn-primary'  onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
+						<td><button type='button' class='btn btn-primary' onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
 						</tr>`;
 					});
 				}
-				else {
-					console.log("Please Log in to continue");
-				}
+			}else if (response.length === 0) {
+				console.log("Please Log in to continue");
+				var toastLiveExample = document.getElementById('liveToast');
+				var toast = new bootstrap.Toast(toastLiveExample);
+    		toast.show();
 			}else{
 				batchInfo[0].removeAttribute("hidden");
 				document.getElementById("batchInfoDetailer").hidden = true;
@@ -245,6 +249,7 @@ appFrm.submit(function(e){
 		url: "functions/process.php",
 		data: appFrm.serialize()+"&submitAppointment=",
 		success: function(response){
+			console.log(response);
 			if(response === "a"){
 				document.getElementById("responseI").innerHTML = `
 				<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -252,10 +257,17 @@ appFrm.submit(function(e){
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>`;
 				setTimeout(function(){window.location.href='findVex.php';},3000);
-			}else{
+			}else if(response === "b"){
 				document.getElementById("responseI").innerHTML = `
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					<strong>Registration Failed!</strong> Please select a valid date.
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>`;
+				document.getElementById("btnSub").disabled = false;
+			}else if(response === "c"){
+				document.getElementById("responseI").innerHTML = `
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>Registration Failed!</strong> You have already made an appointment for this batch.
 					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>`;
 				document.getElementById("btnSub").disabled = false;

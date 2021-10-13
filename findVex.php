@@ -8,6 +8,7 @@ include "functions/functions.php";
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 <style>
 .fade-in {
@@ -115,6 +116,25 @@ include "functions/functions.php";
 	    </div>
 	  </div>
 	</div>
+
+
+	<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+	  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+	    <div class="toast-header">
+				<i class="bi bi-exclamation-triangle-fill pe-1" style="color:#FFC170;"></i>
+	      <strong class="me-auto text-warning">  Error</strong>
+	      <small>Just Now</small>
+	      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+	    </div>
+	    <div class="toast-body">
+	      Please login <a href='login.php'>here<a> to continue.
+	    </div>
+	  </div>
+	</div>
+
+	<form action="functions/process.php" method="POST">
+		<button type="Submit" name="logout" class="btn btn-success">Logout</button>
+	</form>
 	<script src="scripts/ajax.js"></script>
 	<script>
 

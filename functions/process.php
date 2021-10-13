@@ -158,14 +158,25 @@ if(isset($_POST["submitAppointment"])){
 	$expiryDate = $_POST["expiryDate"];
 	$date = $_POST["date"];
 	$username = $_SESSION["currentUser"]["username"];
-
 	if($date < $expiryDate){
-		insertAppointment($date,$batchNo,$username);
-		echo "a";
-		return;
+		if($date > date("Y-m-d")) {
+			if(!mysqli_num_rows(checkAppointment($batchNo, $username)) > 0){
+				insertAppointment($date,$batchNo,$username);
+				echo "a";
+				return;
+		  }else{
+				//you have already made an appointment for this batch
+				echo "c";
+				return;
+			}
+		}
 	}
 	echo "b";
-	echo "Appointment date cannot be after expiry date";
+	//echo "Appointment date cannot be after expiry date";
 	return;
+}
+
+if(isset($_POST["logout"])){
+	unset($_SESSION["currentUser"]);
 }
 ?>
