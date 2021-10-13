@@ -2,7 +2,7 @@
 include ("functions/functions.php");
 include ("include/header.php")
 ?>
-
+<body>
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
       <div class="row">
