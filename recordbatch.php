@@ -85,14 +85,14 @@ include('include/header.php')
             </div>
 
             <div class="col-md-12">
-        	  <label for="vaccineID"><b>Vaccine ID</b> <i class="border tooltip" style="color:black;">?</i><span class="tooltiptext">Tooltip text</span></label>
+        	  <label for="vaccineID"><b>Vaccine ID</b></label>
 
-            <select class="form-select" onchange="validateOptions(this.value)" name="vaccineID" id="vaccineID">
-            <option value="'. $record["vaccineID"] .'" selected>Choose Vaccine ID</option>
+            <select class="form-select" onchange="validateOptions(this.value)" name="vaccineID" id="vaccineID" required>
+            <option value="validate" selected>Choose Vaccine ID</option>
             <?php
             $allVaccine = findAllVaccine();
             while($record = mysqli_fetch_assoc($allVaccine)){
-              echo '<option value= "'.$record["vaccineID"].'">'.$record["vaccineID"].'</option>';
+              echo '<option value= "'.$record["vaccineID"].'">'.$record["vaccineID"].' - '.$record["vaccineName"].'</option>';
             }
             ?>
 

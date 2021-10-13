@@ -76,13 +76,13 @@ if(isset($_POST["recordBatch"])){
 	$vaccineID = $_POST["vaccineID"];
 	$centreName = $_POST["centreName"];
 
-	if(!mysqli_num_rows(checkBatch($batchNo)) > 0){
+	if($vaccineID != "validate"){
 	  recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreName);
 	  jsalert("Success");
 	  gopage("/tetratheos/recordBatch.php");
 	  return;
 	}
-	jsalert("Batch No. already exist");
+	jsalert("Please Choose Vaccine ID");
 	gopage("/tetratheos/recordBatch.php");
 }
 

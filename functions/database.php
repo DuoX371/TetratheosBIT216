@@ -63,6 +63,13 @@ function checkBatch($batchNo){
   return mysqli_query($database, $sql);
 }
 
+//check if batch already exist and retrieve batch data
+function checkBatch2($vaccineID){
+  global $database;
+  $sql = "select * from batch where batchNo = '$vaccineID'";
+  return mysqli_query($database, $sql);
+}
+
 //Retrieve batches from a centre
 function getBatch($centreName){
     global $database;

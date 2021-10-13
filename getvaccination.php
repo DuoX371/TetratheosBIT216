@@ -17,7 +17,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql = "select vion.vaccinationID, vion.status, vion.remark, vion.batchNo, b.expiryDate, u.fullName, v.vaccineName, v.manufacturer, v.vaccineID from vaccination as vion inner join batch as b on vion.batchNo = b.batchNo inner join user as u on vion.vaccinationID = u.vaccinationID inner join vaccine as v on vion.batchNo = v.batchNo where vion.vaccinationID= '$q'";
+$sql = "select vion.vaccinationID, vion.status, vion.remark, vion.batchNo, b.expiryDate, u.fullName, v.vaccineName, v.manufacturer, v.vaccineID from vaccination as vion inner join batch as b on vion.batchNo = b.batchNo inner join user as u on vion.username = u.username inner join vaccine as v on vion.vaccineID = v.vaccineID where vion.vaccinationID= '$q'";
 $result = mysqli_query($con,$sql);
 
 echo '
