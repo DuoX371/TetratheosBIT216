@@ -9,17 +9,26 @@ if(isset($_POST["registerAdmin"])){
   $email = $_POST["email"];
   $fname = $_POST["fname"];
   $staffID = $_POST["staffid"];
-  $centreName = $_POST["centreName"];
 
-echo $centreName;
-  if(!mysqli_num_rows(checkUser($username)) > 0){
-    registerAdmin($username,$pass,$email,$fname,$staffID,$centreName);
-    jsalert("Success");
-    gopage("/tetratheos/index.php");
-    return;
-  }
-  jsalert("Username already exist");
-  gopage("/tetratheos/register.php");
+	if(isset($_POST["inputCentre"])){
+		$inputCentre = $_POST["inputCentre"];
+		$inputCentreAdd = $_POST["inputCentreAdd"];
+		if(!mysqli_num_rows(checkUser($username)) > 0){
+			createCentre($inputCentre,$inputCentreAdd);
+	    registerAdmin($username,$pass,$email,$fname,$staffID,$inputCentre);
+	    echo true;
+	    return;
+	  }
+	}
+	else if(isset($_POST["centreName"])){
+		$centreName = $_POST["centreName"];
+		if(!mysqli_num_rows(checkUser($username)) > 0){
+	    registerAdmin($username,$pass,$email,$fname,$staffID,$centreName);
+	    echo true;
+	    return;
+	  }
+	}
+  echo false;
 }
 
 //register patient

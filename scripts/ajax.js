@@ -31,15 +31,19 @@ var adminFrm = $('#adminRegForm');
 adminFrm.submit(function(e) {
 	console.log(adminFrm.serialize());
 	var centerName = document.getElementById('centreName').value;
+	var inputCentre = document.getElementById('inputCentre').value;
+	var inputCentreAdd = document.getElementById('inputCentreAdd').value;
 	var userA = document.getElementById('usernameA').value;
 	var passA = document.getElementById('passA').value;
 	var emailA = document.getElementById('emailA').value;
 	var fnameA = document.getElementById('fnameA').value;
 	var staffid = document.getElementById('staffid').value;
 	e.preventDefault();
-	if(centerName === "validate"){
-		document.getElementById("modalContent").innerHTML = "Please select a center name.";
-		return;
+	if(inputCentre.length === 0 || inputCentreAdd.length === 0){
+		if(centerName === "validate"){
+			document.getElementById("modalContent").innerHTML = "Please select a center name.";
+			return;
+		}
 	}
 	if(userA === "" || passA === "" || emailA === "" || fnameA === "" || staffid === "") {
 		document.getElementById("modalContent").innerHTML = "Please fill in all the blanks";

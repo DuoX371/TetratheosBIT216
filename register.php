@@ -133,8 +133,8 @@ include('functions/database.php');
 								<div class="row register-form">
 									<div class="col-md-6">
 										<div class="form-group">
-											<select class="form-control" name="centreName" id="centreName">
-												<option value="validate" disabled selected hidden>Choose a Healthcare Centre</option>
+											<select class="form-control" onchange="validateOptions(this.value)" name="centreName" id="centreName">
+												<option value="validate" selected>Choose a Healthcare Centre</option>
 												<?php
 												$allHealthcareCentre = allHealthcareCentre();
 												while($record = mysqli_fetch_assoc($allHealthcareCentre)){
@@ -143,14 +143,23 @@ include('functions/database.php');
 												?>
 											</select>
 										</div>
+										<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+										<label>Healthcare Centre not listed?<br>Create a new Healthcare Centre</label>
+
+										<div class="form-group" style="padding-top:20px">
+											<input type="text" class="form-control" onchange="newCentre()" placeholder="Healthcare Centre Name" name="inputCentre" id="inputCentre"/>
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control" onchange="newCentre()" placeholder="Healthcare Centre Address" name="inputCentreAdd" id="inputCentreAdd"/>
+										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="form-group">
 											<input type="text" class="form-control" placeholder="Username *" name="username" id="usernameA"/>
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control" placeholder="Password *" name="pass" id="passA"/>
 										</div>
-									</div>
-									<div class="col-md-6">
 										<div class="form-group">
 											<input type="email" class="form-control"  placeholder="Your Email *" name="email" id="emailA"/>
 										</div>
@@ -211,5 +220,26 @@ include('functions/database.php');
 			</div>
 		</div>
 <script src="scripts/ajax.js"></script>
+<script>
+function newCentre(){
+	if(document.getElementById("inputCentre").value.length != 0 || document.getElementById("inputCentreAdd").value.length != 0){
+		document.getElementById("centreName").disabled = true;
+	}
+	else {
+		document.getElementById("centreName").disabled = false;
+	}
+}
+
+function validateOptions(selected){
+	console.log(selected);
+	if(selected === "validate"){
+		document.getElementById("inputCentre").disabled = false;
+		document.getElementById("inputCentreAdd").disabled = false;
+	}else{
+		document.getElementById("inputCentre").disabled = true;
+		document.getElementById("inputCentreAdd").disabled = true;
+	}
+}
+</script>
 </body>
 </html>

@@ -28,6 +28,13 @@ function registerAdmin($username,$pass,$email,$fname,$staffID,$centreName){
   mysqli_query($database, $sql);
 }
 
+function createCentre($inputCentre,$inputCentreAdd){
+	global $database;
+  $sql = "insert into healthcarecentre(centreName, address)
+  Values('$inputCentre', '$inputCentreAdd')";
+  mysqli_query($database, $sql);
+}
+
 //register patient
 function registerPatient($username,$pass,$email,$fname,$icp){
   global $database;
