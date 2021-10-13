@@ -108,8 +108,7 @@ function displayVacccine(vaccineID){
 			selectVaccine: "",
 		},
 		success: function(response){
-			console.log(response);
-			tableLocation[0].removeAttribute("hidden");
+			tableLocation[0].hidden = false;
 			document.getElementById("batchInfo").hidden = true;
 			document.getElementById("batchInfoDetailer").hidden = true;
 			tableLocation[0].getElementsByTagName('tbody')[1].innerHTML = "";
@@ -119,7 +118,7 @@ function displayVacccine(vaccineID){
 				`<tr>
 				<td>${d.centreName}</td>
 		    <td>${d.address}</td>
-				<td><button onclick='availableVaccines(this.value,this.getAttribute("data-value"))' value='${d.centreName}' data-value='${d.vaccineID}'>Select</button></td>
+				<td><button type='button' class='btn btn-primary'  onclick='availableVaccines(this.value,this.getAttribute("data-value"))' value='${d.centreName}' data-value='${d.vaccineID}'>Select</button></td>
 				</tr>`;
 			});
 
@@ -155,7 +154,7 @@ function availableVaccines(centreName,vaccineID){
 						document.getElementById("batchInfo").getElementsByTagName('tbody')[1].innerHTML +=
 						`<tr>
 						<td>${d.batchNo}</td>
-						<td><button onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
+						<td><button type='button' class='btn btn-primary'  onclick='batchInfoDetailed(this.value)' value='${d.batchNo}'>Select</button></td>
 						</tr>`;
 					});
 				}
@@ -199,7 +198,7 @@ function batchInfoDetailed(batchNo){
 				`<tr>
 				<td>${d.expiryDate}</td>
 				<td>${d.quantityAvailable}</td>
-				<td><button onclick='displayAppointmentDetails(this.value)' data-bs-toggle="modal" data-bs-target="#confirmation" value='${d.batchNo}'>Select</button></td>
+				<td><button type='button' class='btn btn-primary'  onclick='displayAppointmentDetails(this.value)' data-bs-toggle="modal" data-bs-target="#confirmation" value='${d.batchNo}'>Select</button></td>
 				</tr>`;
 			});
 		},

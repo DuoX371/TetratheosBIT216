@@ -8,30 +8,35 @@ include "functions/functions.php";
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 </style>
 </head>
-	<table>
+<div class="container">
+	<table class="table">
+		<thead class="thead-dark">
 	  <tr>
 	    <th>Vaccine Name</th>
 	    <th>Manufacturer</th>
 			<th>Please Choose</th>
 	  </tr>
+	</thead>
 		<?php
 		$findAllVaccineBatch = findAllVaccine();
 		  while($record = mysqli_fetch_assoc($findAllVaccineBatch)){
@@ -39,12 +44,12 @@ tr:nth-child(even) {
 	  <tr>
 	    <td><?php echo $record["vaccineName"] ?></td>
 	    <td><?php echo $record["manufacturer"] ?></td>
-			<td><?php echo "<button onclick='displayVacccine(this.value)' value='" . $record["vaccineID"] . "'>Select</button>";?></td>
+			<td><?php echo "<button type='button' class='btn btn-primary' onclick='displayVacccine(this.value)' value='" . $record["vaccineID"] . "'>Select</button>";?></td>
 	  </tr>
 	<?php } ?>
 	</table>
 <br>
-	<table id="tableLocation" hidden>
+	<table id="tableLocation" class="fade-in table" hidden>
 		<tr>
 	    <th>Healthcare Centre</th>
 	    <th>Address</th>
@@ -54,7 +59,7 @@ tr:nth-child(even) {
 		</tbody>
 	</table>
 <br>
-	<table id="batchInfo" hidden>
+	<table id="batchInfo" class="fade-in table" hidden>
 		<tr>
 			<th>Batch Number available</th>
 			<!-- <th>Quantity Available</th> -->
@@ -64,7 +69,7 @@ tr:nth-child(even) {
 		</tbody>
 	</table>
 <br>
-	<table id="batchInfoDetailer" hidden>
+	<table id="batchInfoDetailer" class="fade-in table" hidden>
 		<tr>
 			<th>Expiry Date</th>
 			<th>Quantity Available</th>
@@ -73,6 +78,7 @@ tr:nth-child(even) {
 		<tbody>
 		</tbody>
 	</table>
+</div>
 	<!-- Modal -->
 	<div class="modal fade" id="confirmation" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
