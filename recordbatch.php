@@ -2,6 +2,7 @@
 include('functions/database.php');
 include('functions/process.php');
 
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -17,51 +18,49 @@ include('functions/process.php');
     <title>Tetratheos - Administrator</title>
   </head>
 <style>
-.table {
-  height: 50px;
-  overflow: visible !important;
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>
 <body>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="margin-left:20%;"><</a>
+      <button class="btn btn-outline-primary" type="submit" style="margin-right:20%;">Logout</button>
+      </div>
+    </div>
+  </nav>
   <?php
         $centreBatch = getBatch($_SESSION["currentUser"]["centreName"]);
 
         echo'
-        <h1> '. $_SESSION["currentUser"]["centreName"] .' </h1>
+        <p class="text-center fs-1 fw-bolder"> '. $_SESSION["currentUser"]["centreName"] .' </p>
 
-        <div class="card-body">
-          <div>
+        <div class="card-body" style="">
+          <div class="container-sm" style="text-align:center;overflow: auto !important;max-height:375px;">
           <form action="batch.php" method="POST" id="batchForm">
-          <table class="table table-striped" style="overflow: visible !important;">
+          <table class="table table-striped table-light">
             <tr>
               <th>Batch No.</th>
               <th>Expiry Date</th>
@@ -76,7 +75,7 @@ include('functions/process.php');
           while($record = mysqli_fetch_assoc($centreBatch)){
             echo '
               <tr>
-                <td><a href="batch.php"><button onclick="checkBatch(this.value)" name="btnBatch" value="'. $record["batchNo"] .'"> '. $record["batchNo"] .' </button></a></td>
+                <td><a href="batch.php"><button class="btn btn-outline-primary" onclick="checkBatch(this.value)" name="btnBatch" value="'. $record["batchNo"] .'"> '. $record["batchNo"] .' </button></a></td>
                 <td> '. $record["expiryDate"] .' </td>
                 <td> '. $record["quantityAvailable"] .' </td>
                 <td> '. $record["quantityAdministered"] .' </td>
@@ -92,31 +91,55 @@ include('functions/process.php');
           </div>
         </div>';
         ?>
-
-        <form action="functions/process.php" method="post">
-
-          <div class="container">
+        <div class="container-sm border border-secondary">
+        <form class="row g-4" action="functions/process.php" method="post">
+            <h3 style="text-align:center;">New Batch</h3>
+            <div class="col-12" style="width:60%;">
             <label for="batchNo"><b>Batch No.</b></label>
-            <input type="text" placeholder="Enter Batch No." name="batchNo" required>
+            <?php
+            $allBatch = allBatch();
+            $rowcount=mysqli_num_rows($allBatch)+1;
+            echo' "'.$rowcount.'"
+            <input type="hidden" placeholder="Enter Batch No." name="batchNo" required>';?>
+            </div>
 
+            <div class="col-md-5">
             <label for="expiryDate"><b>Expiry Date</b></label>
             <input type="date" name="expiryDate" required>
+            </div>
 
-        	<label for="quantityAvailable"><b>Available Quantity</b></label>
+            <div class="col-md-6">
+        	  <label for="quantityAvailable"><b>Available Quantity</b></label>
             <input type="int" placeholder="Enter Quantity" name="quantityAvailable" required>
+            </div>
 
-        	<label for="vaccineID"><b>vaccineID</b></label>
-            <input type="text" placeholder="Enter Vaccine ID" name="vaccineID" required>
+            <div class="col-md-12">
+        	  <label for="vaccineID"><b>Vaccine ID</b> <i class="border tooltip" style="color:black;">?</i><span class="tooltiptext">Tooltip text</span></label>
 
-          <label for="centreName"><b>Centre Name</b></label>
-            <input type="text" placeholder="Enter Centre Name" name="centreName" required>
+            <select class="form-select" onchange="validateOptions(this.value)" name="vaccineID" id="vaccineID">
+            <option value="'. $record["vaccineID"] .'" selected>Choose Vaccine ID</option>
+            <?php
+            $allVaccine = findAllVaccine();
+            while($record = mysqli_fetch_assoc($allVaccine)){
+              echo '<option value= "'.$record["vaccineID"].'">'.$record["vaccineID"].'</option>';
+            }
+            ?>
 
-          <div class="container" style="background-color:#f1f1f1">
-            <button type="submit" name="recordBatch">Register</button>
-            <button type="submit" class="submitBtn">Cancel</button>
+            </select>
+            </div>
+
+          <?php
+            echo'
+            <input type="hidden"  value ="'. $_SESSION["currentUser"]["centreName"] .'" name="centreName" required>'
+            ?>
+
+          <div class="" style="text-align:center;">
+            <button class="btn btn-primary" type="submit" name="recordBatch" style="margin-bottom:1%;">Add</button>
           </div>
 
         </form>
+
+      </div>
 
 
 </body>

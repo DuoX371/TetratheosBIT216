@@ -50,6 +50,12 @@ function findUser(){
   return mysqli_query($database, $sql);
 }
 
+//Retrieve all batch
+function allBatch(){
+  global $database;
+  $sql = "select * from batch";
+  return mysqli_query($database, $sql);
+}
 //check if batch already exist and retrieve batch data
 function checkBatch($batchNo){
   global $database;
