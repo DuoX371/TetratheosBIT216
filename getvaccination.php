@@ -2,9 +2,6 @@
 <html>
 <head>
 <style>
-table, th, td {
-  border:1px solid black;
-}
 </style>
 </head>
 <body>
@@ -23,7 +20,7 @@ $result = mysqli_query($con,$sql);
 echo '
 <form action="functions/process.php" method="POST" id="updateVaccinationStatusRemarks">
 
-<table>
+<table class="table table-striped table-light" style="text-align:center;">
 <tr>
   <th>Vaccination ID</th>
   <th>Batch No.</th>

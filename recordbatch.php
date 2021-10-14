@@ -5,7 +5,6 @@ include('include/header.php')
 
 ?>
 <!DOCTYPE HTML>
-<html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -28,10 +27,10 @@ include('include/header.php')
         echo'
         <p class="text-center fs-1 fw-bolder"> '. $_SESSION["currentUser"]["centreName"] .' </p>
 
-        <div class="card-body" style="">
-          <div class="container-sm" style="text-align:center;overflow: auto !important;max-height:375px;">
+        <div class="card-body" >
+          <div class="container-sm" style="overflow: auto;max-height:375px;">
           <form action="batch.php" method="POST" id="batchForm">
-          <table class="table table-striped table-light">
+          <table class="table table-striped table-light" style="text-align:center;">
             <tr>
               <th>Batch No.</th>
               <th>Expiry Date</th>
@@ -64,7 +63,7 @@ include('include/header.php')
         ?>
         <div class="container-sm border border-secondary">
         <form class="row g-4" action="functions/process.php" method="post">
-            <h3 style="text-align:center;">New Batch</h3>
+            <h3 style="text-align:center;">Add New Batch</h3>
             <div class="col-12" style="width:60%;">
             <label for="batchNo"><b>Batch No.</b></label>
             <?php

@@ -35,7 +35,7 @@ if(isset($_SESSION["currentUser"])){
 	      <nav id="navbar" class="navbar">
 	        <ul>
 	          <li><a class="nav-link scrollto active" href="recordBatch.php">Home</a></li>
-						<label class="ps-3 text text-light">You are logged in as '.$_SESSION["currentUser"]["fullName"].'</label>
+						<label class="ps-3 text text-light">Welcome, '.$_SESSION["currentUser"]["fullName"].'</label>
 	          <li><a class="getstarted scrollto" href="login.php">Logout</a></li>
 	        </ul>
 	        <i class="bi bi-list mobile-nav-toggle"></i>
