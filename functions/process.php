@@ -178,5 +178,6 @@ if(isset($_POST["submitAppointment"])){
 
 if(isset($_POST["logout"])){
 	unset($_SESSION["currentUser"]);
+	echo true;
 }
 ?>
