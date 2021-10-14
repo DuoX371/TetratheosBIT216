@@ -13,7 +13,30 @@ include "include/header.php";
 </style>
 </head>
 <div class="container">
+	<table class="table">
+		<thead class="thead-dark">
+	  <tr>
+	    <th>Centre Name</th>
+	    <th>Vacine</th>
+			<th>Appointment</th>
+			<th>Status</th>
+			<th>Remarks</th>
+	  </tr>
+	</thead>
+	<?php
+	$pAppInfo = patientAppointmentDisplay($_SESSION["currentUser"]["username"]);
+	while($record = mysqli_fetch_assoc($pAppInfo)){
+	 ?>
+	 <tr>
+		 <td><?php echo $record["centreName"] ?></td>
+		 <td><?php echo $record["vaccineName"] ?></td>
+		 <td><?php echo $record["appointmentDate"] ?></td>
+		 <td><?php echo $record["status"] ?></td>
+		 <td><?php echo $record["remark"] ?></td>
+	 </tr>
+ <?php } ?>
 
+		</table>
 </div>
 
 </html>
