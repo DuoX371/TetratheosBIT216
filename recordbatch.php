@@ -1,8 +1,8 @@
 <?php
 include('functions/database.php');
 include('functions/process.php');
-include('include/header.php')
-
+include('include/header.php');
+include('functions/session_checker_admin.php');
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

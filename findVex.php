@@ -129,9 +129,5 @@ include "include/header.php";
 	    </div>
 	  </div>
 	</div>
-
-	<form action="functions/process.php" method="POST">
-		<button type="Submit" name="logout" class="btn btn-success">Logout</button>
-	</form>
 	<script src="scripts/ajax.js"></script>
 </html>
