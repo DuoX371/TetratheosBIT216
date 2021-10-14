@@ -1,7 +1,7 @@
 <?php
 include('functions/database.php');
 include('functions/process.php');
-include('include/header.php')
+include('include/header.php');
 
 ?>
 <!DOCTYPE HTML>

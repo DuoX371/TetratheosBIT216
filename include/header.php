@@ -19,6 +19,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 </head>
@@ -29,28 +30,27 @@
 
 			<h1 class="logo me-auto"><a href="index.php">Tetratheos</a></h1>
 <?php
+//<label class="ps-3 text text-light">You are logged in as '.$_SESSION["currentUser"]["fullName"].'</label>
 if(isset($_SESSION["currentUser"])){
 	if($_SESSION["currentUser"]["userType"] == "a"){
 	echo '
 	      <nav id="navbar" class="navbar">
 	        <ul>
 	          <li><a class="nav-link scrollto" href="recordBatch.php">Home</a></li>
-						<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-						<label class="ps-3 text text-light">You are logged in as '.$_SESSION["currentUser"]["fullName"].'</label>
+						<li class="dropdown"><a href="#"><span>'.$_SESSION["currentUser"]["fullName"].'</span></a>
 	          <li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
 	}
 	elseif($_SESSION["currentUser"]["userType"] == "p"){
 		echo '
 		      <nav id="navbar" class="navbar">
 					<ul>
-						<li><a class="nav-link scrollto" href="findVex.php">Home</a></li>
-						<li class="dropdown"><a href="#"><span>My Account</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="appointments.php">My Appointments</a></li>
-            </ul>
-          </li>
-					<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-						<label class="ps-3 text text-light">You are logged in as '.$_SESSION["currentUser"]["fullName"].'</label>
+						<li><a class="nav-link scrollto" href="index.php#">Home</a></li>
+						<li><a class="nav-link scrollto" href="findVex.php">Appointment</a></li>
+					<li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
+					<li class="dropdown"><a href="#"><span>'.$_SESSION["currentUser"]["fullName"].'</span> <i class="bi bi-chevron-down"></i></a>
+					<ul>
+						<li><a href="appointments.php">My Appointments</a></li>
+					</ul>
 						<li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
 
 	}
@@ -58,7 +58,7 @@ if(isset($_SESSION["currentUser"])){
 	echo '
 	      <nav id="navbar" class="navbar">
 	        <ul>
-	          <li><a class="nav-link scrollto" href="index.php">Home</a></li>
+	          <li><a class="nav-link scrollto" href="index.php#">Home</a></li>
 	          <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
 	          <li><a class="nav-link scrollto" href="findVex.php">Appointment</a></li>
 	          <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
