@@ -1,0 +1,231 @@
+{
+  "id": "e4bc5ce0-b1e6-4937-b510-53dcf0812774",
+  "version": "2.0",
+  "name": "tetratheosSignup",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "8954ef76-5176-4b18-a822-beb6f35a3c91",
+    "name": "Signup",
+    "commands": [{
+      "id": "23d290d6-9ac2-42c9-8ae4-f061352e57e7",
+      "comment": "",
+      "command": "open",
+      "target": "/tetratheos/register.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f380e8a-fac8-49c6-8472-665e353d4e3c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "968x870",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74ca0437-9653-4d23-bfe8-32bb805fb959",
+      "comment": "",
+      "command": "click",
+      "target": "id=home-tab",
+      "targets": [
+        ["id=home-tab", "id"],
+        ["linkText=Admin", "linkText"],
+        ["css=#home-tab", "css:finder"],
+        ["xpath=//a[contains(text(),'Admin')]", "xpath:link"],
+        ["xpath=//a[@id='home-tab']", "xpath:attributes"],
+        ["xpath=//ul[@id='myTab']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#home')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa9b1ca4-220e-41aa-a668-784bc6a7f9d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=inputCentre",
+      "targets": [
+        ["id=inputCentre", "id"],
+        ["name=inputCentre", "name"],
+        ["css=#inputCentre", "css:finder"],
+        ["xpath=//input[@id='inputCentre']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b217749-f20a-4e27-bddf-465594a2a50f",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputCentre",
+      "targets": [
+        ["id=inputCentre", "id"],
+        ["name=inputCentre", "name"],
+        ["css=#inputCentre", "css:finder"],
+        ["xpath=//input[@id='inputCentre']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Snezhnaya"
+    }, {
+      "id": "ff60fd7c-45b1-4f1e-b31b-2d87304d5543",
+      "comment": "",
+      "command": "type",
+      "target": "id=inputCentreAdd",
+      "targets": [
+        ["id=inputCentreAdd", "id"],
+        ["name=inputCentreAdd", "name"],
+        ["css=#inputCentreAdd", "css:finder"],
+        ["xpath=//input[@id='inputCentreAdd']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Snezhnaya, Teyvat"
+    }, {
+      "id": "a58a4284-d08c-4ee4-b53e-d1f0daf24166",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameA",
+      "targets": [
+        ["id=usernameA", "id"],
+        ["name=username", "name"],
+        ["css=#usernameA", "css:finder"],
+        ["xpath=//input[@id='usernameA']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "jhlee"
+    }, {
+      "id": "9f066307-69b0-422e-a34b-d096a561b38b",
+      "comment": "",
+      "command": "type",
+      "target": "id=passA",
+      "targets": [
+        ["id=passA", "id"],
+        ["name=pass", "name"],
+        ["css=#passA", "css:finder"],
+        ["xpath=//input[@id='passA']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "d881d428-380e-4dd0-8bf6-c9394e1cd3bc",
+      "comment": "",
+      "command": "type",
+      "target": "id=emailA",
+      "targets": [
+        ["id=emailA", "id"],
+        ["name=email", "name"],
+        ["css=#emailA", "css:finder"],
+        ["xpath=//input[@id='emailA']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/input", "xpath:position"]
+      ],
+      "value": "jhlee@gmail.com"
+    }, {
+      "id": "d450e2dd-d10a-4775-b9d0-d8028f8be39a",
+      "comment": "",
+      "command": "click",
+      "target": "id=fnameA",
+      "targets": [
+        ["id=fnameA", "id"],
+        ["name=fname", "name"],
+        ["css=#fnameA", "css:finder"],
+        ["xpath=//input[@id='fnameA']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b96bfdb-ea0d-4d61-b07e-dcead6ed3d8d",
+      "comment": "",
+      "command": "type",
+      "target": "id=fnameA",
+      "targets": [
+        ["id=fnameA", "id"],
+        ["name=fname", "name"],
+        ["css=#fnameA", "css:finder"],
+        ["xpath=//input[@id='fnameA']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Jian Hao Lee"
+    }, {
+      "id": "24a5cbe2-fae1-48e4-af43-8ee7e1a262b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=staffid",
+      "targets": [
+        ["id=staffid", "id"],
+        ["name=staffid", "name"],
+        ["css=#staffid", "css:finder"],
+        ["xpath=//input[@id='staffid']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e256c65e-ae0a-4127-90c3-28e287499447",
+      "comment": "",
+      "command": "type",
+      "target": "id=staffid",
+      "targets": [
+        ["id=staffid", "id"],
+        ["name=staffid", "name"],
+        ["css=#staffid", "css:finder"],
+        ["xpath=//input[@id='staffid']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "S02"
+    }, {
+      "id": "9bb28df2-511f-430a-a1ed-cf6a7d0715b7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "name=registerAdmin",
+      "targets": [
+        ["name=registerAdmin", "name"],
+        ["css=.btnRegister:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='registerAdmin']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f915d0b6-3977-424f-bab2-0639a4b8c8bd",
+      "comment": "",
+      "command": "click",
+      "target": "name=registerAdmin",
+      "targets": [
+        ["name=registerAdmin", "name"],
+        ["css=.btnRegister:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='registerAdmin']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f3f2dd9-316f-4950-b6e3-a4b12e91ecb2",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "name=registerAdmin",
+      "targets": [
+        ["name=registerAdmin", "name"],
+        ["css=.btnRegister:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='registerAdmin']", "xpath:attributes"],
+        ["xpath=//form[@id='adminRegForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cb31fc7c-2586-4ad4-808c-590d84e320d7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8954ef76-5176-4b18-a822-beb6f35a3c91"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

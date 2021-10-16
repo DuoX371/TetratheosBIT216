@@ -113,7 +113,7 @@ include('functions/database.php');
 		<div class ="container">
 			<div class="row">
 				<div class="col-md-3 register-left">
-					<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+					<a href="index.php"><img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/></a>
 					<h3>Welcome</h3>
 					<p>Join us now at Tetratheos to get your vaccination done!</p>
 					<a href="register.php"><input type="submit" name="" value="Register"/></a><br/>

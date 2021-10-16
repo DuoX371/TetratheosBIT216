@@ -41,12 +41,10 @@ if(isset($_POST["registerPatient"])){
 
   if(!mysqli_num_rows(checkUser($username)) > 0){
     registerPatient($username,$pass,$email,$fname,$icp);
-    jsalert("Success");
-    gopage("/tethratheos/index.php");
-    return;
+    echo true;
+		return;
   }
-  jsalert("Username already exist");
-  gopage("/tethratheos/index.php");
+	echo false;
 }
 
 //login
