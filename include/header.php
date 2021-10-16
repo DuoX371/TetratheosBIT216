@@ -36,21 +36,9 @@ if(isset($_SESSION["currentUser"])){
 	echo '
 	      <nav id="navbar" class="navbar">
 	        <ul>
-<<<<<<< HEAD
-	          <li><a class="nav-link scrollto active" href="recordBatch.php">Home</a></li>
-						<label class="ps-3 text text-light">Welcome, '.$_SESSION["currentUser"]["fullName"].'</label>
-	          <li><a class="getstarted scrollto" href="login.php">Logout</a></li>
-	        </ul>
-	        <i class="bi bi-list mobile-nav-toggle"></i>
-	      </nav><!-- .navbar -->
-
-	    </div>
-	  </header><!-- End Header -->';
-=======
 	          <li><a class="nav-link scrollto" href="recordBatch.php">Home</a></li>
 						<li class="dropdown"><a href="#"><span>'.$_SESSION["currentUser"]["fullName"].'</span></a>
 	          <li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
->>>>>>> f38886e417e7a198e21f58366e1621a52a62da3c
 	}
 	elseif($_SESSION["currentUser"]["userType"] == "p"){
 		echo '

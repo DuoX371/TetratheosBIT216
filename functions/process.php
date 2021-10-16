@@ -94,7 +94,7 @@ if(isset($_POST["updateVaccinationStatusRemarks"])){
 
   updateVaccinationStatusRemarks($status,$remark,$vaccinationID);
   jsalert("Success");
-  //gopage("/tetratheos/batch.php");
+  gopage("/tetratheos/recordbatch.php");
 }
 
 //display vaccine information

@@ -80,7 +80,7 @@ include('functions/session_checker_admin.php');
 
             <div class="col-md-6">
         	  <label for="quantityAvailable"><b>Available Quantity</b></label>
-            <input type="int" placeholder="Enter Quantity" name="quantityAvailable" required>
+            <input type="number" min="0" placeholder="Enter Quantity" name="quantityAvailable" required>
             </div>
 
             <div class="col-md-12">
@@ -94,7 +94,6 @@ include('functions/session_checker_admin.php');
               echo '<option value= "'.$record["vaccineID"].'">'.$record["vaccineID"].' - '.$record["vaccineName"].'</option>';
             }
             ?>
-
             </select>
             </div>
 

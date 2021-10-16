@@ -1,6 +1,8 @@
 <?php
 include('functions/database.php');
-include('include/header.php')
+include('functions/process.php');
+include('include/header.php');
+include('functions/session_checker_admin.php');
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -31,6 +33,7 @@ function getVaccinationDetails(str) {
 
 
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -44,6 +47,10 @@ function getVaccinationDetails(str) {
   if(isset($_POST["btnBatch"])){
   	$batchNo = $_POST["btnBatch"];
     $batchInfo = checkBatch($batchNo);
+  }
+  else{
+  //  $batchNo = $_POST["btnBatch"];
+    //echo "<script>window.location.href='recordbatch.php'</script>";
   }
 
     echo'
@@ -117,4 +124,6 @@ function getVaccinationDetails(str) {
 
    ?>
 </body>
+<script>
+</script>
 </html>
