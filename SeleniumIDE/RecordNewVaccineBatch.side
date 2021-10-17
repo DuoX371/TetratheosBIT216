@@ -1,0 +1,210 @@
+{
+  "id": "6abd19af-51cd-4ff6-a8d4-3ec6e52881b4",
+  "version": "2.0",
+  "name": "Tetratheos",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "149c5369-157c-4ae7-a079-fe782e462604",
+    "name": "RecordNewVaccineBatch",
+    "commands": [{
+      "id": "3d3da95d-4317-49a1-bbea-3ebefcee2846",
+      "comment": "",
+      "command": "open",
+      "target": "/tetratheos/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3048053e-647d-4165-9e89-79353b6ad6eb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f232af39-c7f7-4e59-b67d-c20a0b1c8dc0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=li:nth-child(5) > .getstarted", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//nav[@id='navbar']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'login.php')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc9e4a68-e9be-4dad-9aac-f844f56d1877",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0459dc56-3549-43fa-99a7-68441b701d68",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "ahmad"
+    }, {
+      "id": "73a998ac-8882-4f10-bfd0-3a33d3919f52",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b64ff07e-5d8d-44ec-a9f3-a18b8ef3289b",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "1d044826-db73-4d8d-a15d-addc64eb02bc",
+      "comment": "",
+      "command": "click",
+      "target": "name=login",
+      "targets": [
+        ["name=login", "name"],
+        ["css=.btnRegister", "css:finder"],
+        ["xpath=//input[@name='login']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//form/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f63e1b30-aabc-45c8-b2bd-c16af48ab854",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-5",
+      "targets": [
+        ["css=.col-md-5", "css:finder"],
+        ["xpath=//div[3]/form/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03ffb1c1-9ab9-499e-9c77-81c00b5f1c87",
+      "comment": "",
+      "command": "click",
+      "target": "name=expiryDate",
+      "targets": [
+        ["name=expiryDate", "name"],
+        ["css=.col-md-5 > input", "css:finder"],
+        ["xpath=//input[@name='expiryDate']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a954a1e1-3838-4125-9b9b-a07fb8d5755f",
+      "comment": "",
+      "command": "type",
+      "target": "name=expiryDate",
+      "targets": [
+        ["name=expiryDate", "name"],
+        ["css=.col-md-5 > input", "css:finder"],
+        ["xpath=//input[@name='expiryDate']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "2021-10-30"
+    }, {
+      "id": "dcc4405a-4364-400c-b498-97a1116333aa",
+      "comment": "",
+      "command": "click",
+      "target": "name=quantityAvailable",
+      "targets": [
+        ["name=quantityAvailable", "name"],
+        ["css=.col-md-6 > input", "css:finder"],
+        ["xpath=//input[@name='quantityAvailable']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "102c42f6-933d-46b4-882f-115637f7a933",
+      "comment": "",
+      "command": "type",
+      "target": "name=quantityAvailable",
+      "targets": [
+        ["name=quantityAvailable", "name"],
+        ["css=.col-md-6 > input", "css:finder"],
+        ["xpath=//input[@name='quantityAvailable']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "243194f0-0b30-46c5-8f3f-c88342228220",
+      "comment": "",
+      "command": "click",
+      "target": "id=vaccineID",
+      "targets": [
+        ["id=vaccineID", "id"],
+        ["name=vaccineID", "name"],
+        ["css=#vaccineID", "css:finder"],
+        ["xpath=//select[@id='vaccineID']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70f58e72-28f2-40f1-a6f6-111ab124b49c",
+      "comment": "",
+      "command": "select",
+      "target": "id=vaccineID",
+      "targets": [],
+      "value": "label=S01 - Sinovac"
+    }, {
+      "id": "502fa066-82d5-47a3-ab27-94b7068259ea",
+      "comment": "",
+      "command": "click",
+      "target": "name=recordBatch",
+      "targets": [
+        ["name=recordBatch", "name"],
+        ["css=div > .btn-primary", "css:finder"],
+        ["xpath=//button[@name='recordBatch']", "xpath:attributes"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7cfabd3c-0cb7-4236-aa48-ce5dfee17706",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["149c5369-157c-4ae7-a079-fe782e462604"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}
