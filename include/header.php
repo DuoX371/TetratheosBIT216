@@ -4,6 +4,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Tetratheos</title>
+	<link rel="icon" href="https://i.imgur.com/NGC9N4k.png" type="image/icon type">
   <meta content="" name="description">
   <meta content="" name="keywords">
 

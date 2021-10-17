@@ -163,14 +163,12 @@ if(isset($_POST["submitAppointment"])){
 				echo "a";
 				return;
 		  }else{
-				//you have already made an appointment for this batch
 				echo "c";
 				return;
 			}
 		}
 	}
 	echo "b";
-	//echo "Appointment date cannot be after expiry date";
 	return;
 }
 
