@@ -1,0 +1,334 @@
+{
+  "id": "baa81b8f-52c7-437b-9b66-6246b9ba92c9",
+  "version": "2.0",
+  "name": "requestVaccinationAppointment",
+  "url": "http://localhost/tetratheos/findVex.php",
+  "tests": [{
+    "id": "1af965ee-d7d6-46fa-a922-c24279833092",
+    "name": "requestVaccinationAppointment",
+    "commands": [{
+      "id": "86c02367-90ce-4fa7-b36f-62ade6108244",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/tetratheos/findVex.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11992faa-84a1-493b-8c9a-5bcdf13e6dd2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51aebe17-5748-466b-8357-5419c044683e",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@value='M01']", "xpath:attributes"],
+        ["xpath=//td[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d7d4635-bb5d-41dd-a90e-aa6418fc8f0c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#tableLocation .btn",
+      "targets": [
+        ["css=#tableLocation .btn", "css:finder"],
+        ["xpath=//button[@value='Liyue Healthcare Centre1']", "xpath:attributes"],
+        ["xpath=//table[@id='tableLocation']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a28e155-95bb-4a3c-99ec-52d07b773d39",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#tableLocation .btn",
+      "targets": [
+        ["css=#tableLocation .btn", "css:finder"],
+        ["xpath=//button[@value='Liyue Healthcare Centre1']", "xpath:attributes"],
+        ["xpath=//table[@id='tableLocation']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e3a15ce-66da-476a-836b-ecd4ed0f5078",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#tableLocation .btn",
+      "targets": [
+        ["css=#tableLocation .btn", "css:finder"],
+        ["xpath=//button[@value='Liyue Healthcare Centre1']", "xpath:attributes"],
+        ["xpath=//table[@id='tableLocation']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a073cb1-8eaa-4925-89b3-4a4535f3e7e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > td:nth-child(2) > .btn",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//button[@value='8']", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfo']/tbody[2]/tr[3]/td[2]/button", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "763428c2-c5f5-4d28-8504-3ee88a1b01a8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8d2a03a-6c7d-40ad-98af-097ad9a27952",
+      "comment": "",
+      "command": "click",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d4ec224-999d-4e76-b6fb-abcaf53ebdd8",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf22d97d-fceb-4a53-8501-6d1c5370182c",
+      "comment": "",
+      "command": "click",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e635a101-78e5-4583-b5b4-d18d88ff9902",
+      "comment": "",
+      "command": "type",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": "2021-10-22"
+    }, {
+      "id": "54b31dbc-3acd-485d-a202-ce7bf3d2ad9d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSub",
+      "targets": [
+        ["id=btnSub", "id"],
+        ["css=#btnSub", "css:finder"],
+        ["xpath=//button[@id='btnSub']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "54e5785d-679f-46b4-bf2e-91cbf3bb61a6",
+    "name": "requestAndViewAppointment",
+    "commands": [{
+      "id": "fee70d5a-8a73-4833-84aa-3e4b240ebfc1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/tetratheos/findVex.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da0e6d94-06c3-4974-99f7-632c33503a08",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e56c793d-f7cd-45e5-b85f-1669f993b4b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@value='M01']", "xpath:attributes"],
+        ["xpath=//td[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a03f940-4673-45f8-a78c-dbb2a6e20192",
+      "comment": "",
+      "command": "click",
+      "target": "css=#tableLocation .btn",
+      "targets": [
+        ["css=#tableLocation .btn", "css:finder"],
+        ["xpath=//button[@value='Liyue Healthcare Centre1']", "xpath:attributes"],
+        ["xpath=//table[@id='tableLocation']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10f3e671-cc59-4878-aad1-b119f0bc7cee",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > td:nth-child(2) > .btn",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//button[@value='8']", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfo']/tbody[2]/tr[3]/td[2]/button", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c48cdf3d-4d31-48b4-9678-ff4e2cd91c32",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0568d186-fb0c-4b0c-b78f-24bcda9b984c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "80044b91-09b8-420d-ae9a-59ed40418d74",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#batchInfoDetailer .btn",
+      "targets": [
+        ["css=#batchInfoDetailer .btn", "css:finder"],
+        ["xpath=(//button[@value='8'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='batchInfoDetailer']/tbody[2]/tr/td[3]/button", "xpath:idRelative"],
+        ["xpath=//table[4]/tbody[2]/tr/td[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fb49196-acda-41bc-8d76-66ecfee73326",
+      "comment": "",
+      "command": "click",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bce00077-cec8-419c-bdc8-5dbf0fddf089",
+      "comment": "",
+      "command": "type",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": "2021-10-22"
+    }, {
+      "id": "ba25c8ef-a13d-43ef-81ec-551151053611",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSub",
+      "targets": [
+        ["id=btnSub", "id"],
+        ["css=#btnSub", "css:finder"],
+        ["xpath=//button[@id='btnSub']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e05b022-368f-4b68-a427-d7c6d97484c3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btnSub",
+      "targets": [
+        ["id=btnSub", "id"],
+        ["css=#btnSub", "css:finder"],
+        ["xpath=//button[@id='btnSub']", "xpath:attributes"],
+        ["xpath=//form[@id='submitAppointment']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "23d8912e-ecce-4eae-bb2f-85f06e9b97b3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Appointments",
+      "targets": [
+        ["linkText=My Appointments", "linkText"],
+        ["css=ul:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Appointments')]", "xpath:link"],
+        ["xpath=//nav[@id='navbar']/ul/li[4]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'appointments.php')]", "xpath:href"],
+        ["xpath=//li[4]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Appointments')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "bdd66ce2-e955-483c-b88a-ad3ce1361990",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}
