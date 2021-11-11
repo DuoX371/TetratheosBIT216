@@ -38,6 +38,7 @@ if(isset($_SESSION["currentUser"])){
 	      <nav id="navbar" class="navbar">
 	        <ul>
 	          <li><a class="nav-link scrollto" href="recordBatch.php">Home</a></li>
+						<li><a class="nav-link scrollto" href="administer.php">Administer</a></li>
 						<li class="dropdown"><a href="#"><span>'.$_SESSION["currentUser"]["fullName"].'</span></a>
 	          <li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
 	}

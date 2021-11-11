@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2021-10-15" view-index="0" gantt-divider-location="379" resource-divider-location="300" version="3.1.3102" locale="en_MY">
+    <description/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd11" name="Outline number" width="58" order="0"/>
+        <field id="tpd3" name="Name" width="148" order="1"/>
+        <field id="tpd4" name="Begin date" width="77" order="2"/>
+        <field id="tpd5" name="End date" width="77" order="3"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Planning" color="#000000" meeting="false" start="2021-08-25" duration="4" complete="100" thirdDate="2021-08-25" thirdDate-constraint="0" expand="true">
+            <task id="7" name="Brainstorm Title &amp; Write Overview" color="#8cb6ce" meeting="false" start="2021-08-25" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="8" name="Derive Aims &amp; Objectives" color="#8cb6ce" meeting="false" start="2021-08-26" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="9" name="Derive Scope" color="#8cb6ce" meeting="false" start="2021-08-27" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <depend id="125" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="125" name="Finalise Project Schedule" color="#000000" meeting="false" start="2021-08-30" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <task id="128" name="Derive WBS" color="#8cb6ce" meeting="false" start="2021-08-30" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="129" name="Create Gantt Chart" color="#8cb6ce" meeting="false" start="2021-08-30" duration="1" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="53" name="Baseline Gantt Char" color="#8cb6ce" meeting="true" start="2021-08-31" duration="0" complete="100" thirdDate="2021-08-31" thirdDate-constraint="0" expand="true"/>
+            <task id="141" name="Project Plan" color="#8cb6ce" meeting="true" start="2021-08-31" duration="0" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="25" name="Analysis" color="#000000" meeting="false" start="2021-08-31" duration="5" complete="100" thirdDate="2021-08-31" thirdDate-constraint="0" expand="true">
+            <task id="33" name="Derive Use Case Diagram &amp; ACD" color="#8cb6ce" meeting="false" start="2021-08-31" duration="2" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <depend id="34" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="34" name="Derive Expanded Use Cases" color="#000000" meeting="false" start="2021-09-02" duration="3" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <task id="35" name="Sign Up" color="#8cb6ce" meeting="false" start="2021-09-02" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true">
+                    <depend id="36" type="2" difference="0" hardness="Strong"/>
+                    <depend id="37" type="2" difference="0" hardness="Strong"/>
+                    <depend id="38" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="36" name="Record New Vaccine Batch" color="#8cb6ce" meeting="false" start="2021-09-03" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true"/>
+                <task id="37" name="Request Vaccination Appointment" color="#8cb6ce" meeting="false" start="2021-09-03" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true"/>
+                <task id="38" name="View Vaccine Batch Information" color="#8cb6ce" meeting="false" start="2021-09-03" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true">
+                    <depend id="58" type="2" difference="0" hardness="Strong"/>
+                    <depend id="59" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="58" name="Record Vaccination Appoinment" color="#8cb6ce" meeting="false" start="2021-09-06" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true"/>
+                <task id="59" name="Confirm Vaccination Appoinment" color="#8cb6ce" meeting="false" start="2021-09-06" duration="1" complete="100" thirdDate="2021-09-02" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="40" name="Finalised EUC, SSD &amp; Contracts" color="#8cb6ce" meeting="true" start="2021-09-07" duration="0" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="60" name="Requirement Definition &amp; Specification Document" color="#8cb6ce" meeting="true" start="2021-09-07" duration="0" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="41" name="Design" color="#000000" meeting="false" start="2021-09-07" duration="9" complete="100" thirdDate="2021-09-07" thirdDate-constraint="0" expand="true">
+            <task id="43" name="Derive Design Class Diagram &amp; ERD" color="#8cb6ce" meeting="false" start="2021-09-07" duration="2" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="63" name="Derive Site Map" color="#8cb6ce" meeting="false" start="2021-09-09" duration="1" complete="100" thirdDate="2021-09-09" thirdDate-constraint="0" expand="true">
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="64" name="Derive GUI" color="#000000" meeting="false" start="2021-09-10" duration="6" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <task id="67" name="Sign-Up" color="#8cb6ce" meeting="false" start="2021-09-10" duration="1" complete="100" thirdDate="2021-09-10" thirdDate-constraint="0" expand="true"/>
+                <task id="68" name="Record New Vaccine Batch" color="#8cb6ce" meeting="false" start="2021-09-13" duration="1" complete="100" thirdDate="2021-09-13" thirdDate-constraint="0" expand="true"/>
+                <task id="69" name="Request VAccination Appoinment" color="#8cb6ce" meeting="false" start="2021-09-14" duration="1" complete="100" thirdDate="2021-09-14" thirdDate-constraint="0" expand="true"/>
+                <task id="70" name="View Vaccine BAtch Information" color="#8cb6ce" meeting="false" start="2021-09-15" duration="1" complete="100" thirdDate="2021-09-15" thirdDate-constraint="0" expand="true"/>
+                <task id="71" name="Record VAccination Administered" color="#8cb6ce" meeting="false" start="2021-09-16" duration="1" complete="100" thirdDate="2021-09-16" thirdDate-constraint="0" expand="true"/>
+                <task id="72" name="Confirm Vaccination Appoinment" color="#8cb6ce" meeting="false" start="2021-09-17" duration="1" complete="100" thirdDate="2021-09-17" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="73" name="Finalised ERD &amp; Site Map &amp; GUI" color="#8cb6ce" meeting="true" start="2021-09-20" duration="0" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="74" name="GUI Design &amp; Explantion document" color="#8cb6ce" meeting="true" start="2021-09-20" duration="0" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="44" name="Iteration 1" meeting="false" start="2021-09-20" duration="22" complete="100" expand="true">
+            <task id="46" name="Sign-Up" color="#000000" meeting="false" start="2021-09-20" duration="10" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <depend id="47" type="2" difference="0" hardness="Strong"/>
+                <depend id="48" type="2" difference="0" hardness="Strong"/>
+                <task id="78" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-09-20" duration="6" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="79" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-09-28" duration="2" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="80" name="System testing &amp; Test document" color="#8cb6ce" meeting="false" start="2021-09-30" duration="2" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="47" name="Record New Vaccine Batch" color="#000000" meeting="false" start="2021-10-04" duration="6" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <task id="82" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-10-04" duration="2" complete="100" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+                <task id="83" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-10-06" duration="2" complete="100" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+                <task id="84" name="System testing &amp; Test document" color="#8cb6ce" meeting="false" start="2021-10-08" duration="2" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="48" name="Request Vaccination Appoinment" color="#000000" meeting="false" start="2021-10-12" duration="6" complete="100" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true">
+                <task id="86" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-10-12" duration="2" complete="100" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+                <task id="87" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-10-14" duration="2" complete="100" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+                <task id="88" name="System testing &amp; Test document" color="#8cb6ce" meeting="false" start="2021-10-18" duration="2" complete="100" thirdDate="2021-10-04" thirdDate-constraint="0" expand="true"/>
+            </task>
+        </task>
+        <task id="52" name="Iteration 2" meeting="false" start="2021-10-20" duration="15" complete="0" expand="true">
+            <task id="90" name="View Vaccine Batch Information" color="#000000" meeting="false" start="2021-10-20" duration="6" complete="0" thirdDate="2021-10-20" thirdDate-constraint="0" expand="true">
+                <depend id="95" type="2" difference="0" hardness="Strong"/>
+                <depend id="99" type="2" difference="0" hardness="Strong"/>
+                <task id="92" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-10-20" duration="2" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="93" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-10-22" duration="2" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="94" name="System testing  Test document" color="#8cb6ce" meeting="false" start="2021-10-26" duration="2" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="95" name="Record Vaccination Administered" color="#000000" meeting="false" start="2021-10-28" duration="5" complete="0" thirdDate="2021-10-28" thirdDate-constraint="0" expand="true">
+                <task id="100" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-10-28" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="102" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-10-29" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="103" name="System testing &amp; Test document" color="#8cb6ce" meeting="false" start="2021-11-03" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="99" name="Confirm Vaccination Appoinment" color="#000000" meeting="false" start="2021-11-04" duration="4" complete="0" thirdDate="2021-11-05" thirdDate-constraint="0" expand="true">
+                <task id="105" name="Use case &amp; Algorithm Identification" color="#8cb6ce" meeting="false" start="2021-11-04" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="106" name="Coding &amp; Testing" color="#8cb6ce" meeting="false" start="2021-11-05" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+                <task id="107" name="System testing &amp; Test document" color="#8cb6ce" meeting="false" start="2021-11-08" duration="2" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="108" name="Finalised Iteration 1 &amp; 2" color="#8cb6ce" meeting="true" start="2021-11-10" duration="0" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="110" name="User manual &amp; documentations" color="#8cb6ce" meeting="true" start="2021-11-10" duration="0" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="112" name="Presentation" color="#000000" meeting="false" start="2021-11-18" duration="1" complete="0" thirdDate="2021-11-16" thirdDate-constraint="0" expand="true">
+            <task id="116" name="Presentation" color="#8cb6ce" meeting="false" start="2021-11-18" duration="1" complete="0" thirdDate="2021-08-30" thirdDate-constraint="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Jia Le" function="Default:0" contacts="yugiragon02@gmail.com" phone="123"/>
+        <resource id="1" name="Johann" function="Default:0" contacts="choojiahan@gmail.com" phone="123"/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="90" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="99" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="112" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="46" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="48" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="95" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="112" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

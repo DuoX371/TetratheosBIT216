@@ -164,7 +164,7 @@ include ("include/header.php")
         <div class="row">
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="https://i.imgur.com/FVUdv4t.png" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="https://i.imgur.com/h48xLjy.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Johann Choo Jia Han</h4>
                 <span>Founder and developer</span>

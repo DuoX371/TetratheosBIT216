@@ -180,4 +180,32 @@ function patientAppointmentDisplay($username){
 	join vaccination using (batchNo) join user using (username) where username ='$username'";
 	return mysqli_query($database, $sql);
 }
+
+//get appointment based on status
+function getAppointment($status, $centreName){
+	global $database;
+	$sql = "select fullName,ICPassport,batchNo,expiryDate,manufacturer,vaccineName,vaccinationID FROM user
+	join vaccination using (username) join batch using (batchNo) join vaccine using (vaccineID)
+	where status = '$status' and batch.centreName = '$centreName'";
+	return mysqli_query($database, $sql);
+}
+
+//select vaccination join batchNo
+function getBatchVaccination($vaccinationID){
+	global $database;
+	$sql = "select * FROM vaccination join batch using (batchNo) where vaccinationID = $vaccinationID";
+	return mysqli_query($database, $sql);
+}
+
+function updateQuantity($numL, $numT, $batchNo){
+	global $database;
+	$sql = "update batch SET quantityAvailable = $numL, quantityAdministered= $numT WHERE batchNo = $batchNo";
+	mysqli_query($database, $sql);
+}
+
+function updateAdministered($vaccinationID){
+	global $database;
+	$sql = "update vaccination SET status = 'Administered' WHERE vaccinationID = $vaccinationID";
+	mysqli_query($database, $sql);
+}
 ?>

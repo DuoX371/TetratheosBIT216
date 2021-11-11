@@ -61,7 +61,6 @@ include "include/header.php";
 	<table id="batchInfo" class="fade-in table" hidden>
 		<tr>
 			<th>Batch Number available</th>
-			<!-- <th>Quantity Available</th> -->
 			<th>Please Choose</th>
 		</tr>
 		<tbody>

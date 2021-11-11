@@ -172,6 +172,19 @@ if(isset($_POST["submitAppointment"])){
 	return;
 }
 
+if(isset($_POST["confirmAdministered"])){
+	$vaccinationID = $_POST["vaccinationID"];
+	$vaccinationBatchInfo = getBatchVaccination($vaccinationID);
+	while($record = mysqli_fetch_assoc($vaccinationBatchInfo)){
+		if($record['quantityAvailable'] <= 0) return;
+		$numL = $record['quantityAvailable'] - 1;
+		$numT = $record['quantityAdministered'] + 1;
+		updateQuantity($numL, $numT, $record['batchNo']);
+		updateAdministered($vaccinationID);
+		echo "success";
+	}
+}
+
 if(isset($_POST["logout"])){
 	unset($_SESSION["currentUser"]);
 	echo true;
