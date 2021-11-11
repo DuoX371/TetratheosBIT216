@@ -49,6 +49,10 @@ adminFrm.submit(function(e) {
 		document.getElementById("modalContent").innerHTML = "Please fill in all the blanks";
 		return;
 	}
+	if(!emailA.includes("@") || emailA.endsWith("@") || emailA.startsWith("@")){
+		$("#emailA").focus();
+		return document.getElementById("modalContent").innerHTML = "Invalid email format";
+	}
 	$.ajax({
 		type: "POST",
 		url: "functions/process.php",
@@ -81,6 +85,10 @@ patientFrm.submit(function(e) {
 	if(userP === "" || passP === "" || emailP === "" || fnameP === "" || icp === "") {
 		document.getElementById("modalContent").innerHTML = "Please fill in all the blanks";
 		return;
+	}
+	if(!emailP.includes("@") || emailP.endsWith("@") || emailP.startsWith("@")){
+		$("#emailP").focus();
+		return document.getElementById("modalContent").innerHTML = "Invalid email format";
 	}
 	$.ajax({
 		type: "POST",

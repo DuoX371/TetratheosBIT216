@@ -163,7 +163,7 @@ include('functions/database.php');
 											<input type="password" class="form-control" placeholder="Password *" name="pass" id="passA"/>
 										</div>
 										<div class="form-group">
-											<input type="email" class="form-control"  placeholder="Your Email *" name="email" id="emailA"/>
+											<input type="text" class="form-control"  placeholder="Your Email *" name="email" id="emailA"/>
 										</div>
 										<div class="form-group">
 											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" id="fnameA"/>
@@ -190,7 +190,7 @@ include('functions/database.php');
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="email" class="form-control"  placeholder="Your Email *" name="email" id="emailP"/>
+											<input type="text" class="form-control"  placeholder="Your Email *" name="email" id="emailP"/>
 										</div>
 										<div class="form-group">
 											<input type="text" class="form-control" placeholder="Your Full Name *" name="fname" id="fnameP"/>
