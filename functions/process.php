@@ -186,7 +186,7 @@ if(isset($_POST["confirmAdministered"])){
 	while($record = mysqli_fetch_assoc($vaccinationBatchInfo)){
 		if($record['quantityAvailable'] <= 0) return;
 		$numL = $record['quantityAvailable'] - 1;
-    	$numP = $record['quantityPending'] - 1;
+    	$numP = $record['quantityPending'] - 0;
 		$numT = $record['quantityAdministered'] + 1;
 		updateQuantity($numL, $numT, $numP, $record['batchNo']);
 		updateAdministered($vaccinationID);
