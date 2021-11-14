@@ -48,7 +48,7 @@ if(isset($_SESSION["currentUser"])){
 		if(!mysqli_num_rows(checkStatus($_SESSION["currentUser"]["username"])) > 0){
 			$status = "<a href='findVex.php'class='text-danger'>Status: NA</a>";
 		}else {
-			$status = "<a href='appoinments.php' class='text-success'>Status: Appointed</a>";
+			$status = "<a href='appointments.php' class='text-success'>Status: Appointed</a>";
 		}
 		echo '
 		      <nav id="navbar" class="navbar">

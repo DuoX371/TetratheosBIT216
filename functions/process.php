@@ -101,6 +101,13 @@ if(isset($_POST["updateVaccinationStatusRemarks"])){
   }
 
   updateVaccinationStatusRemarks($status, $remark, $vaccinationID);
+  $selectVaccination = selectVaccination($vaccinationID);
+  while($row = mysqli_fetch_assoc($selectVaccination)){
+	  $selectUser = checkUser($row['username']);
+	  while($r = mysqli_fetch_assoc($selectUser)){
+		  mail($r['email'],"Vaccination Status","I am here to inform you that your vaccination status is $status", "From: tetratheos@tetra.com");
+	  }
+  }
   jsalert("Success");
   gopage("/tetratheos/recordbatch.php");
 }

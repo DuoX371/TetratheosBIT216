@@ -189,16 +189,22 @@ function getBatchVaccination($vaccinationID){
 	$sql = "select * FROM vaccination join batch using (batchNo) where vaccinationID = $vaccinationID";
 	return mysqli_query($database, $sql);
 }
-
+//update quantity
 function updateQuantity($numL, $numT, $numP, $batchNo){
 	global $database;
 	$sql = "update batch SET quantityAvailable = $numL, quantityAdministered= $numT, quantityPending= $numP WHERE batchNo = $batchNo";
 	mysqli_query($database, $sql);
 }
-
+//update administered
 function updateAdministered($vaccinationID){
 	global $database;
 	$sql = "update vaccination SET status = 'Administered' WHERE vaccinationID = $vaccinationID";
 	mysqli_query($database, $sql);
+}
+//select vaccination info
+function selectVaccination($vaccinationID){
+  global $database;
+  $sql = "select * from vaccination where vaccinationID = $vaccinationID";
+  return mysqli_query($database, $sql);
 }
 ?>
