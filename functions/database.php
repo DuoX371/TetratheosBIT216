@@ -14,6 +14,13 @@ function checkUser($username){//check if username exist
   return mysqli_query($database, $sql);
 }
 
+//nav bar status check
+function checkStatus($username){
+  global $database;
+  $sql = "select * from vaccination join user using(username) where username = '$username'";
+  return mysqli_query($database, $sql);
+}
+
 //find all healthcare centre name
 function allHealthcareCentre(){
 	global $database;
@@ -92,25 +99,11 @@ function checkVaccination($batchNo){
   return mysqli_query($database, $sql);
 }
 
-//Retrieve vaccination from batch
-function getVaccination($batchNo){
-    global $database;
-    $sql = "select b.batchNo, expiryDate, quantityAvailable, quantityAdministered, b.vaccineID, vaccinationID, centreName, v.vaccineName from vaccination as v inner join batch as b on b.batchNo = v.batchNo where vaccinationID = '$vaccinationID'";
-    return mysqli_query($database, $sql);
-}
-
 //Retrieve user,batch and vaccine from vaccination
 function getVaccinationDetails($vaccinationID){
     global $database;
     $sql = "select vion.vaccinationID, vion.batchNo, b.expiryDate, u.fullName, v.vaccineName, v.manufacturer, v.vaccineID from vaccination as vion inner join batch as b on vion.batchNo = b.batchNo inner join user as u on vion.vaccinationID = u.vaccinationID inner join vaccine as v on vion.batchNo = v.batchNo where vion.vaccinationID= '$vaccinationID'";
     return mysqli_query($database, $sql);
-}
-
-//Retrieve centreName of administator account
-function findCentreName($userName){
-  global $database;
-  $sql = "select * from user where centreName = '$centreName'";
-  return mysqli_query($database, $sql);  return $result;
 }
 
 //Update vaccination status and remarks

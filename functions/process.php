@@ -160,10 +160,13 @@ if(isset($_POST["submitAppointment"])){
 		if($date > date("Y-m-d")) {
 			if(!mysqli_num_rows(checkAppointment($batchNo, $username)) > 0){
 				insertAppointment($date,$batchNo,$username);
-        $numL = $record['quantityAvailable'] - 0;
-        $numP = $record['quantityPending'] + 1;
-    		$numT = $record['quantityAdministered'] + 0;
-    		updateQuantity($numL, $numT, $numP, $record['batchNo']);
+				$selectBatch = checkBatch($batchNo);
+				while($record = mysqli_fetch_assoc($selectBatch)){
+					$numL = $record['quantityAvailable'] - 0;
+					$numP = $record['quantityPending'] + 1;
+					$numT = $record['quantityAdministered'] + 0;
+					updateQuantity($numL, $numT, $numP, $record['batchNo']);
+				}
 				echo "a";
 				return;
 		  }else{
@@ -172,6 +175,7 @@ if(isset($_POST["submitAppointment"])){
 			}
 		}
 	}
+	//if date is before expiry date
 	echo "b";
 	return;
 }
@@ -182,7 +186,7 @@ if(isset($_POST["confirmAdministered"])){
 	while($record = mysqli_fetch_assoc($vaccinationBatchInfo)){
 		if($record['quantityAvailable'] <= 0) return;
 		$numL = $record['quantityAvailable'] - 1;
-    $numP = $record['quantityPending'] - 1;
+    	$numP = $record['quantityPending'] - 1;
 		$numT = $record['quantityAdministered'] + 1;
 		updateQuantity($numL, $numT, $numP, $record['batchNo']);
 		updateAdministered($vaccinationID);

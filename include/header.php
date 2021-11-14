@@ -43,6 +43,13 @@ if(isset($_SESSION["currentUser"])){
 	          <li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
 	}
 	elseif($_SESSION["currentUser"]["userType"] == "p"){
+		include "functions/database.php";
+		$status = "";
+		if(!mysqli_num_rows(checkStatus($_SESSION["currentUser"]["username"])) > 0){
+			$status = "<a href='findVex.php'class='text-danger'>Status: NA</a>";
+		}else {
+			$status = "<a href='appoinments.php' class='text-success'>Status: Appointed</a>";
+		}
 		echo '
 		      <nav id="navbar" class="navbar">
 					<ul>
@@ -53,7 +60,9 @@ if(isset($_SESSION["currentUser"])){
 					<ul>
 						<li><a href="appointments.php">My Appointments</a></li>
 					</ul>
-						<li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>';
+						<li>'.$status.'</li>
+						<li><a class="getstarted" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>
+						';
 
 	}
 }else{
@@ -72,7 +81,7 @@ if(isset($_SESSION["currentUser"])){
 <i class="bi bi-list mobile-nav-toggle"></i>
 </nav><!-- .navbar -->
 </div>
-</header><!-- End Header -->'
+</header><!-- End Header -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
