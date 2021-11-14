@@ -52,7 +52,6 @@ while($row = mysqli_fetch_array($result)) {
         <option value="pending">Pending</option>
         <option value="confirmed">Confirmed</option>
         <option value="rejected">Rejected</option>
-        <option value="administered">Administered</option>
       </select>
 
     </td>

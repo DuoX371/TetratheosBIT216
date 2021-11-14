@@ -88,7 +88,7 @@ function recordBatch($batchNo,$expiryDate,$quantityAvailable,$vaccineID,$centreN
 //check if batch already exist and retrieve batch data
 function checkVaccination($batchNo){
   global $database;
-  $sql = "select * from vaccination where batchNo = '$batchNo'";
+  $sql = "select * from vaccination where batchNo = '$batchNo' and status = 'Pending'";
   return mysqli_query($database, $sql);
 }
 
@@ -197,9 +197,9 @@ function getBatchVaccination($vaccinationID){
 	return mysqli_query($database, $sql);
 }
 
-function updateQuantity($numL, $numT, $batchNo){
+function updateQuantity($numL, $numT, $numP, $batchNo){
 	global $database;
-	$sql = "update batch SET quantityAvailable = $numL, quantityAdministered= $numT WHERE batchNo = $batchNo";
+	$sql = "update batch SET quantityAvailable = $numL, quantityAdministered= $numT, quantityPending= $numP WHERE batchNo = $batchNo";
 	mysqli_query($database, $sql);
 }
 
