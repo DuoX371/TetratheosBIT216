@@ -49,13 +49,13 @@ while($row = mysqli_fetch_array($result)) {
   echo'
     <td>
       <select name="status" id="status">
-        <option value="pending">Pending</option>
         <option value="confirmed">Confirmed</option>
         <option value="rejected">Rejected</option>
       </select>
 
     </td>
   <td><input type="text" id="remark" name="remark" placeholder="'. $row["remark"] .'"></td>
+  <input type="hidden" id="batchNo" name="batchNo" value ="'. $row["batchNo"] .'" placeholder="'. $row["batchNo"] .'">
   <input type="hidden" id="vaccinationID" name="vaccinationID" value ="'. $row["vaccinationID"] .'" placeholder="'. $row["vaccinationID"] .'">
   <td><input type="submit" value="Submit" name="updateVaccinationStatusRemarks"></td>
   ';

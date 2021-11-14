@@ -86,11 +86,21 @@ if(isset($_POST["recordBatch"])){
 
 //Update vacccination status and remarks
 if(isset($_POST["updateVaccinationStatusRemarks"])){
+  $batchNo = $_POST["batchNo"];
   $status = $_POST["status"];
   $remark = $_POST["remark"];
   $vaccinationID = $_POST["vaccinationID"];
 
-  updateVaccinationStatusRemarks($status,$remark,$vaccinationID);
+  $selectBatch = checkBatch($batchNo);
+  while($record = mysqli_fetch_assoc($selectBatch)){
+    if($record['quantityAvailable'] < 0) return;
+    $numL = $record['quantityAvailable'] - 0;
+    $numP = $record['quantityPending'] - 1;
+    $numT = $record['quantityAdministered'] + 0;
+    updateQuantity($numL, $numT, $numP, $record['batchNo']);
+  }
+
+  updateVaccinationStatusRemarks($status, $remark, $vaccinationID);
   jsalert("Success");
   gopage("/tetratheos/recordbatch.php");
 }
@@ -186,7 +196,7 @@ if(isset($_POST["confirmAdministered"])){
 	while($record = mysqli_fetch_assoc($vaccinationBatchInfo)){
 		if($record['quantityAvailable'] <= 0) return;
 		$numL = $record['quantityAvailable'] - 1;
-    	$numP = $record['quantityPending'] - 1;
+    $numP = $record['quantityPending'] - 0;
 		$numT = $record['quantityAdministered'] + 1;
 		updateQuantity($numL, $numT, $numP, $record['batchNo']);
 		updateAdministered($vaccinationID);
