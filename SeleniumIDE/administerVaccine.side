@@ -1,0 +1,185 @@
+{
+  "id": "2559c7b9-d97c-4b89-9e62-d680add91df8",
+  "version": "2.0",
+  "name": "tetratheos2",
+  "url": "http://localhost/tetratheos/administer.php",
+  "tests": [{
+    "id": "aa8a240c-a1bd-4a1f-85b7-74d0788dca06",
+    "name": "functional requirements 1",
+    "commands": [{
+      "id": "baa26b14-d52f-4595-a729-3c0284fd6c28",
+      "comment": "",
+      "command": "open",
+      "target": "/tetratheos/administer.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3144a3a8-8f0c-4926-812d-05d6de0ba800",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "215b962d-5282-4ac1-a059-1707af1c3c32",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@id='']", "xpath:attributes"],
+        ["xpath=//td[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "15851197-2b8d-4d0d-bf87-aa12727e4caf",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@id='']", "xpath:attributes"],
+        ["xpath=//td[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4536943-64a7-46c9-b406-659336c7d267",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@id='']", "xpath:attributes"],
+        ["xpath=//td[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b9fdcb8-4561-49d3-80d3-caab19afead1",
+      "comment": "",
+      "command": "click",
+      "target": "id=subBtn",
+      "targets": [
+        ["id=subBtn", "id"],
+        ["css=#subBtn", "css:finder"],
+        ["xpath=//button[@id='subBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='confirmAdministered']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eafd0b10-caaf-40f7-a17b-b5f8fff6f2fe",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=subBtn",
+      "targets": [
+        ["id=subBtn", "id"],
+        ["css=#subBtn", "css:finder"],
+        ["xpath=//button[@id='subBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='confirmAdministered']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfba97d4-66a9-4d55-9b86-1319749d3d47",
+      "comment": "",
+      "command": "click",
+      "target": "css=.table:nth-child(4) th:nth-child(6)",
+      "targets": [
+        ["css=.table:nth-child(4) th:nth-child(6)", "css:finder"],
+        ["xpath=//table[2]/thead/tr/th[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f0433675-3ef0-4ffa-8d75-0e4e8a17b246",
+    "name": "non functional requirement",
+    "commands": [{
+      "id": "faac3558-4b25-42bf-9928-c40b354b980e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/tetratheos/administer.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80ec60d6-2bf4-416a-be4b-63bd8a7d928a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1709x966",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff300e5c-9c4e-4c73-9a2b-a4214ca06ff7",
+      "comment": "",
+      "command": "click",
+      "target": "css=td > .btn",
+      "targets": [
+        ["css=td > .btn", "css:finder"],
+        ["xpath=//button[@id='']", "xpath:attributes"],
+        ["xpath=//td[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02a4a2fd-cb49-4fd0-8688-638da198e5fb",
+      "comment": "",
+      "command": "click",
+      "target": "id=subBtn",
+      "targets": [
+        ["id=subBtn", "id"],
+        ["css=#subBtn", "css:finder"],
+        ["xpath=//button[@id='subBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='confirmAdministered']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cbf8a0b-9573-4958-b8dc-bc13eee22589",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=subBtn",
+      "targets": [
+        ["id=subBtn", "id"],
+        ["css=#subBtn", "css:finder"],
+        ["xpath=//button[@id='subBtn']", "xpath:attributes"],
+        ["xpath=//form[@id='confirmAdministered']/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5d768f2-57bc-4241-9dbf-49fbe38dcbeb",
+      "comment": "",
+      "command": "click",
+      "target": "css=h1:nth-child(2)",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Administered')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ca79856-bfcf-4981-8c9d-f644873f1c10",
+      "comment": "",
+      "command": "click",
+      "target": "css=h1:nth-child(2)",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Administered')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "193936f3-dabd-4314-afb2-1b492558aea0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["aa8a240c-a1bd-4a1f-85b7-74d0788dca06"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

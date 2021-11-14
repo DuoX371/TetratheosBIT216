@@ -13,6 +13,12 @@ include "include/header.php";
 </style>
 </head>
 <div class="container">
+	<?php
+	if(!mysqli_num_rows(patientAppointmentDisplay($_SESSION["currentUser"]["username"])) > 0){
+		echo "You currently do not have any appointments";
+	}
+		else{
+	?>
 	<table class="table">
 		<thead class="thead-dark">
 	  <tr>
@@ -37,6 +43,7 @@ include "include/header.php";
  <?php } ?>
 
 		</table>
+		<?php } ?>
 </div>
 
 </html>
