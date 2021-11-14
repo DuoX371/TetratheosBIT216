@@ -45,7 +45,9 @@ include('functions/session_checker_admin.php');
           while($record = mysqli_fetch_assoc($centreBatch)){
             echo '
               <tr>
-                <td><a href="batch.php"><button class="btn btn-outline-primary" onclick="checkBatch(this.value)" name="btnBatch" value="'. $record["batchNo"] .'"> '. $record["batchNo"] .' </button></a></td>
+                <td><a href="batch.php">
+                <button class="btn btn-outline-primary" onclick="checkBatch(this.value)" name="btnBatch" value="'. $record["batchNo"] .'"> '. $record["batchNo"] .'
+                </button></a></td>
                 <td> '. $record["expiryDate"] .' </td>
                 <td> '. $record["quantityAvailable"] .' </td>
                 <td> '. $record["quantityAdministered"] .' </td>

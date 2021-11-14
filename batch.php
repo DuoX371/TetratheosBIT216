@@ -84,9 +84,9 @@ function getVaccinationDetails(str) {
     mysqli_data_seek($batchInfo,0);
     while($record = mysqli_fetch_assoc($batchInfo)){
       if($record['quantityAvailable'] <= 0){
-        echo "This batch does not have any quantity avialable left";
+        echo "<div class='container'><h3>This batch does not have any Available Quantity left</h3></div>";
       } else{
-      
+
     $vaccinationInfo = checkVaccination($batchNo);
     echo'
     <div class="card-body" >
