@@ -130,7 +130,7 @@ include('functions/database.php');
 					</ul>
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-							<h3 class="register-heading">Register as a Healtcare Administrater</h3>
+							<h3 class="register-heading">Register as a Healtcare Administrator</h3>
 							<form action="" method="POST" id="adminRegForm">
 								<div class="row register-form">
 									<div class="col-md-6">
