@@ -40,8 +40,6 @@ include('functions/session_checker_admin.php');
               <th>Vaccine Name</th>
             </tr>';
 
-//                <td><a href="batch.php"> '. $record["batchNo"] .' </a></td>
-
           while($record = mysqli_fetch_assoc($centreBatch)){
             echo '
               <tr>
