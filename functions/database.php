@@ -162,7 +162,7 @@ function insertAppointment($date,$batchNo,$username){
 //validate appointment
 function checkAppointment($batchNo, $username){
 	global $database;
-  $sql = "select * from vaccination where batchNo = '$batchNo' and username = '$username'";
+  $sql = "select * from vaccination where batchNo = '$batchNo' and username = '$username' and status != 'rejected'";
   return mysqli_query($database, $sql);
 }
 //display patient appointment

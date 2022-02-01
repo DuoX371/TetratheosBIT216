@@ -66,6 +66,7 @@ if(isset($_SESSION["currentUser"])){
 
 	}
 }else{
+	include "functions/database.php";
 	echo '
 	      <nav id="navbar" class="navbar">
 	        <ul>
