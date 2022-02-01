@@ -48,10 +48,6 @@ function getVaccinationDetails(str) {
   	$batchNo = $_POST["btnBatch"];
     $batchInfo = checkBatch($batchNo);
   }
-  else{
-  //  $batchNo = $_POST["btnBatch"];
-    //echo "<script>window.location.href='recordbatch.php'</script>";
-  }
 
     echo'
     <p class="text-center fs-1 fw-bolder"> Batch ' .$batchNo. '</p>
